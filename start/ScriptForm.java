@@ -66,6 +66,7 @@ public class ScriptForm implements ActionListener{
     private Container prnt;
     private JFrame prev_screen;
     private JFrame frame;
+    private JFrame console;
     private Script script;
     private String title;
     private List<Object> r_op_buttons;
@@ -599,8 +600,54 @@ public class ScriptForm implements ActionListener{
         pane.add(buttonPane);
     }
 
-    private void runScript(List<String> ops){
-        ScriptRunner sr = new ScriptRunner();
+    private void runScript(List<Option> ops){
+        JTextArea textArea = new JTextArea (25, 80);
+
+        textArea.setEditable (false);
+
+        this.console = new JFrame (this.title);
+        console.setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        Container contentPane = console.getContentPane ();
+        contentPane.setLayout (new BoxLayout (contentPane, BoxLayout.Y_AXIS));
+        JScrollPane scroll = new JScrollPane (textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        Border scrollBorder = BorderFactory.createEmptyBorder(5,5,5,5);
+        scroll.setBorder(BorderFactory.createCompoundBorder(scroll.getBorder(),scrollBorder));
+
+        contentPane.add (scroll);
+        JButton form = new JButton("Back to Form");
+        form.setActionCommand("form");
+        form.addActionListener(this);
+        JButton cat = new JButton("Back to Categories");
+        cat.setActionCommand("back");
+        cat.addActionListener(this);
+        JButton close = new JButton("Close");
+        close.setActionCommand("close");
+        close.addActionListener(this);
+
+        JPanel buttonPane = new JPanel();
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
+        buttonPane.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        buttonPane.add(form);
+        buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
+        buttonPane.add(cat);
+        buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
+        buttonPane.add(close);
+
+        buttonPane.setAlignmentX(Component.CENTER_ALIGNMENT);
+        Border buttonBorder = BorderFactory.createEmptyBorder(10,0,10,0);
+        buttonPane.setBorder(BorderFactory.createCompoundBorder(buttonPane.getBorder(),buttonBorder));
+        // buttonPane.setMinimumSize(new Dimension(900, 100));
+        // buttonPane.setPreferredSize(new Dimension(900, 100));
+        // buttonPane.setMaximumSize(new Dimension(1200, 200));
+        contentPane.add(buttonPane);
+        // contentPane.add(form);
+        // contentPane.add(cat);
+        console.pack ();
+        console.setVisible (true);
+        System.out.println("WOULD RUN SCRIPT WITH THESE OPTIONS");
+        for (int i = 0; i < ops.size(); i++)
+            System.out.println(ops.get(i).optionString());
+        ScriptRunner sr = new ScriptRunner(textArea);
         sr.runScript(this.script.getCommand(), ops);
     }
 
@@ -616,14 +663,23 @@ public class ScriptForm implements ActionListener{
                 JOptionPane.showMessageDialog(this.frame, mismes);
             }
             else {
-                this.frame.dispose();
+                this.frame.setVisible(false);
                 System.out.println(this.script.getCommandLineString());
-                runScript(this.script.getOptionsStringList());
+                runScript(this.script.getRunningOptions());
             }
+        }
+        else if (e.getActionCommand().equals("form")){
+            this.console.dispose();
+            this.frame.setVisible(true);
         }
         else if (e.getActionCommand().equals("back")){
             this.frame.dispose();
             this.prev_screen.setVisible(true);
+        }
+        else if (e.getActionCommand().equals("close")){
+            this.frame.dispose();
+            this.prev_screen.dispose();
+            System.exit(0);
         }
         else if (e.getActionCommand().equals("out")){
             Option o_op = this.script.findOption("-o");

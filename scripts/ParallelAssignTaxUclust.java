@@ -39,30 +39,3 @@ public class ParallelAssignTaxUclust extends Script {
 	}
 }
 
-// package scripts;
-
-// import java.io.*;
-// import java.lang.String;
-// import java.util.*;
-
-// public class BlastWrapper extends Script {
-// 	public static String title = 
-// 	public static String b_desc = 
-
-// 	public BlastWrapper() {
-// 		// set up script name, command, and descriptions
-// 		this.link = 
-// 		this.c_name = SCRIPTS_PATH + 
-// 		this.l_desc = 
-// 		this.output_desc = 
-
-// 		// set up the required otpions
-// 		this.r_options = new ArrayList<Option>();
-// 		this.r_options.add(new Option());
-
-// 		// set up the extra options
-// 		this.e_options = new ArrayList<Option>();
-// 		this.e_options.add(new Option());
-	
-// 	}
-// }

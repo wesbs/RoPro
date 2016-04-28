@@ -334,7 +334,7 @@ public class Option {
 			case PATH:
 				if (this.getNumFiles() == 1 && this.path != null)
 					retString = flag + " " + this.path;
-				else if (this.getNumFiles() != 0){
+				else if (this.getNumFiles() > 1){
 					StringBuilder sb = new StringBuilder(flag + " " + this.selections.get(0));
 					for (int i = 1; i < this.getNumFiles(); i++)
 						sb.append("," + this.selections.get(i));

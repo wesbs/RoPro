@@ -227,6 +227,33 @@ public class Script {
 		return options.toString();
 	}
 
+	// returns a list of all options that are runnable
+	public List<Option> getRunningOptions(){
+		List<Option> ops = new ArrayList<Option>();
+		int i = 0;
+
+		for (i = 0; i < this.r_options.size(); i++){
+			if (this.r_options.get(i).isRunnable()){
+				ops.add(this.r_options.get(i));
+			}
+			else{
+				System.out.println(this.r_options.get(i).getLabel() + " is not runnable" + (this.r_options.get(i).getOn() ? " but is on" : " and is turned off"));
+			}
+		}
+
+		if (this.e_options != null){
+			for (i = 0; i < this.e_options.size(); i++){
+				if (this.e_options.get(i).isRunnable()){
+					ops.add(this.e_options.get(i));
+				}
+				else{
+					System.out.println(this.e_options.get(i).getLabel() + " is not runnable" + (this.e_options.get(i).getOn() ? " but is on" : " and is turned off"));
+				}
+			}
+		}
+		return ops;
+	}
+
 	// returns the script's full command line string
 	// of the format "<command> <flag1> <arg1> <flag2> <arg2> ..."
 	public String getCommandLineString(){
@@ -251,11 +278,11 @@ public class Script {
 	}
 
 	public static void main(String args[]){
-		List<String> ss = new ArrayList<String>();
-		ss.add("Elephant");
-		ss.add("Dog");
-		ss.add("Horse");
-		List<Option> ops = new ArrayList<Option>();
+		// List<String> ss = new ArrayList<String>();
+		// ss.add("Elephant");
+		// ss.add("Dog");
+		// ss.add("Horse");
+		// List<Option> ops = new ArrayList<Option>();
 		// Option op1 = new Option("-i", 2, "Fasting_Example.sff");
 		// ops.add(op1);
 		// Option op2 = new Option("-o", 2, "test_output/");
@@ -269,7 +296,7 @@ public class Script {
 		// ops.add(op5);
 
 		// Script test = new Script("Process SFF file", "scripts/scripts/process_sff.py", "create some files from an sff file", ops);
-		BetaDiversityPlots test = new BetaDiversityPlots();
+		AlignSeqs test = new AlignSeqs();
 		System.out.println(test.getTitle());
 		System.out.println(test.getCommand());
 		System.out.println(test.getBriefDesc());
@@ -277,13 +304,14 @@ public class Script {
 		System.out.println(test.getCommandLineString());
 		System.out.println("-----------------------------\n\n\n");
 
-		List<Option> op = test.getReqOptions();
-		op.get(0).setPath("Fasting_Example.fna");
-		System.out.println(test.getReqOptionsString());
+		List<Option> ops = test.getReqOptions();
+		ops.get(0).setPath("Fasting_Example.fna");
+		System.out.println("Size: " + ops.size());
+		System.out.println("*************");
 
 		// ScriptRunner.runScript(test.getCommand());
 		// ScriptRunner.runScript("pwd");
-		// ScriptRunner.runScript(test.getCommand(), test.getReqOptions());
+		ScriptRunner.runScript(test.getCommand(), test.getRunningOptions());
 	}
 
 }
