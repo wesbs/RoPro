@@ -22,10 +22,10 @@ public class ParallelAssignTaxRDP extends Script {
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(13);
-		this.e_options.add(new Option("Classifier File", "--rdp_classifier_fp", Option.Path, "Full path to rdp classifier jar file [default: /Users/caporaso/Dropbox/bin/rdp_classifier_2.2/rdp_classifier-2.2.jar]"));
+		this.e_options.add(new Option("Classifier File", "--rdp_classifier_fp", Option.PATH, "Full path to rdp classifier jar file [default: /Users/caporaso/Dropbox/bin/rdp_classifier_2.2/rdp_classifier-2.2.jar]"));
 		this.e_options.add(new Option("Confidence", "-c", Option.NUM, "Minimum confidence to record an assignment [default: 0.5]"));
 		this.e_options.add(new Option("Mapping File", "-m", Option.PATH, "Full path to id_to_taxonomy mapping file [default: /Users/caporaso/.virtualenvs/qiime/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt]"));
-		this.e_options.add(new Option("Reference Sequence File", "-r", Option.Path, "Ref seqs to rdp against. [default: /Users/caporaso/.virtualenvs/qiime/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta]"));
+		this.e_options.add(new Option("Reference Sequence File", "-r", Option.PATH, "Ref seqs to rdp against. [default: /Users/caporaso/.virtualenvs/qiime/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta]"));
 		this.e_options.add(new Option("Max Memory", "--rdp_max_memory", Option.NUM, "Maximum memory allocation, in MB, for Java virtual machine when using the rdp method. Increase for large training sets [default: 4000]"));
 		this.e_options.add(new Option("Jobs to Start", "-O", Option.NUM, "Number of jobs to start [default: 1]"));
 		this.e_options.add(new Option("Retain Temporary Files?", "-R", Option.NOARG, "Retain temporary files after runs complete (useful for debugging) [default: False]"));

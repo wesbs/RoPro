@@ -25,7 +25,7 @@ public class ParallelIdentifyChemSeqs extends Script {
 		this.e_options.add(new Option("Taxonomy File", "-t", Option.PATH, "Path to tab-delimited file mapping sequences to assigned taxonomy. Each assigned taxonomy is provided as a comma-separated list. [default: None; REQUIRED when method is blast_fragments]"));
 		this.e_options.add(new Option("Reference Sequences", "-r", Option.PATH, "Path to reference sequences (used to build a blast db when method blast_fragments). [default: None; REQUIRED when method blast_fragments if no blast_db is provided;]"));
 		this.e_options.add(new Option("Blast Database", "-b", Option.PATH, "Database to blast against. Must provide either –blast_db or –reference_seqs_fp when method is blast_fragments [default: None]"));
-		Lis<String> selects = new ArrayList<String>();
+		List<String> selects = new ArrayList<String>();
 		selects.add("blast_fragments");
 		selects.add("ChimeraSlayer");
 		this.e_options.add(new Option("Detection Method", "-m", Option.SELECT, selects, 1, "Chimera detection method. Choices: blast_fragments or ChimeraSlayer. [default:ChimeraSlayer]"));

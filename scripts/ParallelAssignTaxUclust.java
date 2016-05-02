@@ -5,7 +5,7 @@ import java.lang.String;
 import java.util.*;
 
 public class ParallelAssignTaxUclust extends Script {
-	public static String title = "Parallel Assign Taxonomy using Uclust"
+	public static String title = "Parallel Assign Taxonomy using Uclust";
 	public static String b_desc = "Parallel taxonomy assignment using the uclust consensus taxonomy assignment";
 
 	public ParallelAssignTaxUclust() {

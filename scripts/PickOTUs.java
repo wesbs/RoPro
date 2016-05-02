@@ -53,7 +53,7 @@ public class PickOTUs extends Script {
 		this.e_options.add(new Option("Sortmerna Tabular?", "--sortmerna_tabular", Option.NOARG, "Output alignments in the Blast tabular format with two additional columns including the CIGAR string and the percent query coverage [default: False]"));
 		this.e_options.add(new Option("Alignments Per Read", "--sortmerna_best_N_alignments", Option.NUM, "Must be set together with –sortmerna_tabular. This option specifies how many alignments per read will be written [default: 1]"));
 		this.e_options.add(new Option("Sortmerna MAx Positions", "--sortmerna_max_pos", Option.NUM, "The maximum number of positions per seed to store in the indexed database [default: 10000]"));
-		this.e_options.add(new Option("Min Aligned Percent", "--min_aligned_percent", Option.NUM., "Minimum percent of query sequence that can be aligned to consider a hit, expressed as a fraction between 0 and 1 (BLAST OTU picker only) [default: 0.5]"));
+		this.e_options.add(new Option("Min Aligned Percent", "--min_aligned_percent", Option.NUM, "Minimum percent of query sequence that can be aligned to consider a hit, expressed as a fraction between 0 and 1 (BLAST OTU picker only) [default: 0.5]"));
 		this.e_options.add(new Option("Similarity", "-s", Option.NUM, "Sequence similarity threshold (for blast, cdhit, uclust, uclust_ref, usearch, usearch_ref, usearch61, usearch61_ref, sumaclust, and sortmerna) [default: 0.97]"));
 		this.e_options.add(new Option("Sumaclust Exact?", "--sumaclust_exact", Option.NOARG, "A sequence is assigned to the best matching seed rather than the first matching seed passing the similarity threshold [default: False]"));
 		this.e_options.add(new Option("Reference Length?", "--sumaclust_l", Option.NOARG, true, "Reference sequence length if the shortest [default: True]"));
@@ -90,7 +90,7 @@ public class PickOTUs extends Script {
 		this.e_options.add(new Option("Suppress Cluster Size Filtering?", "-l", Option.NOARG, "Suppress cluster size filtering in usearch. [default: False]"));
 		this.e_options.add(new Option("Remove USearch Logs?", "--remove_usearch_logs", Option.NOARG, "Disable creation of logs when usearch is called. Up to nine logs are created, depending on filtering steps enabled. [default: False]"));
 		this.e_options.add(new Option("Dereplication of Full Sequence?", "--derep_fullseq", Option.NOARG, "Dereplication of full sequences, instead of subsequences. Faster than the default –derep_subseqs in usearch. [default: False]"));
-		selects = new ArrayList<string>();
+		selects = new ArrayList<String>();
 		selects.add("intersection");
 		selects.add("union");
 		this.e_options.add(new Option("Non Chimera Retention", "-F", Option.SELECT, selects, 1, "Selects subsets of sequences detected as non-chimeras to retain after de novo and reference based chimera detection. Options are intersection or union. union will retain sequences that are flagged as non-chimeric from either filter, while intersection will retain only those sequences that are flagged as non-chimeras from both detection methods. [default: union]"));
@@ -105,31 +105,3 @@ public class PickOTUs extends Script {
 		this.e_options.add(new Option("Num of Threads", "--threads", Option.NUM, "Specify number of threads (1 thread per core) to be used for usearch61, sortmerna, sumaclust and swarm commands that utilize multithreading. [default: 1]"));	
 	}
 }
-
-// package scripts;
-
-// import java.io.*;
-// import java.lang.String;
-// import java.util.*;
-
-// public class BlastWrapper extends Script {
-// 	public static String title = 
-// 	public static String b_desc = 
-
-// 	public BlastWrapper() {
-// 		// set up script name, command, and descriptions
-// 		this.link = 
-// 		this.c_name = SCRIPTS_PATH + 
-// 		this.l_desc = 
-// 		this.output_desc = 
-
-// 		// set up the required otpions
-// 		this.r_options = new ArrayList<Option>();
-// 		this.r_options.add(new Option());
-
-// 		// set up the extra options
-// 		this.e_options = new ArrayList<Option>();
-// 		this.e_options.add(new Option());
-	
-// 	}
-// }

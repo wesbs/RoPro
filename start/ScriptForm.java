@@ -601,9 +601,10 @@ public class ScriptForm implements ActionListener{
     }
 
     private void runScript(List<Option> ops){
-        JTextArea textArea = new JTextArea (25, 80);
+        JTextArea textArea = new JTextArea ("", 25, 80);
 
         textArea.setEditable (false);
+        textArea.setLineWrap(true);
 
         this.console = new JFrame (this.title);
         console.setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
@@ -613,7 +614,7 @@ public class ScriptForm implements ActionListener{
         Border scrollBorder = BorderFactory.createEmptyBorder(5,5,5,5);
         scroll.setBorder(BorderFactory.createCompoundBorder(scroll.getBorder(),scrollBorder));
 
-        contentPane.add (scroll);
+        contentPane.add(scroll);
         JButton form = new JButton("Back to Form");
         form.setActionCommand("form");
         form.addActionListener(this);
@@ -647,6 +648,7 @@ public class ScriptForm implements ActionListener{
         System.out.println("WOULD RUN SCRIPT WITH THESE OPTIONS");
         for (int i = 0; i < ops.size(); i++)
             System.out.println(ops.get(i).optionString());
+        textArea.append("\n\n**************STARTING SCRIPT**************\n\n");
         ScriptRunner sr = new ScriptRunner(textArea);
         sr.runScript(this.script.getCommand(), ops);
     }

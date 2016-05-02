@@ -1201,6 +1201,166 @@ public class Categories {
 				ret[0] = ObsMetaCore.title;
 				ret[1] = ObsMetaCore.b_desc;
 				break;
+			case PARALLEL_ALPHA_DIVERSITY:
+				ret[0] = ParallelAlphaDiv.title;
+				ret[1] = ParallelAlphaDiv.b_desc;
+				break;
+			case PARALLEL_ALIGN_SEQS_PYNAST:
+				ret[0] = ParallelAlignSeqsPynast.title;
+				ret[1] = ParallelAlignSeqsPynast.b_desc;
+				break;
+			case PARALLEL_ASSIGN_TAX_BLAST:
+				ret[0] = ParallelAssignTaxBlast.title;
+				ret[1] = ParallelAssignTaxBlast.b_desc;
+				break;
+			case PARALLEL_ASSIGN_TAX_RDP:
+				ret[0] = ParallelAssignTaxRDP.title;
+				ret[1] = ParallelAssignTaxRDP.b_desc;
+				break;
+			case PARALLEL_ASSIGN_TAX_UCLUST:
+				ret[0] = ParallelAssignTaxUclust.title;
+				ret[1] = ParallelAssignTaxUclust.b_desc;
+				break;
+			case PARALLEL_BETA_DIVERSITY:
+				ret[0] = ParallelBetaDiversity.title;
+				ret[1] = ParallelBetaDiversity.b_desc;
+				break;
+			case PARALLEL_BLAST:
+				ret[0] = ParallelBlast.title;
+				ret[1] = ParallelBlast.b_desc;
+				break;
+			case PARALLEL_IDENTIFY_CHEM_SEQS:
+				ret[0] = ParallelIdentifyChemSeqs.title;
+				ret[1] = ParallelIdentifyChemSeqs.b_desc;
+				break;
+			case PARALLEL_MAP_READS_REF:
+				ret[0] = ParallelMapReadsToRef.title;
+				ret[1] = ParallelMapReadsToRef.b_desc;
+				break;
+			case PARALLEL_MERGE_OTU_TABLES:
+				ret[0] = ParallelMergeOTUTables.title;
+				ret[1] = ParallelMergeOTUTables.b_desc;
+				break;
+			case PARALLEL_MULTIPLE_RAREFACTIONS:
+				ret[0] = ParallelMultipleRarefactions.title;
+				ret[1] = ParallelMultipleRarefactions.b_desc;
+				break;
+			case PARALLEL_PICK_OTUS_BLAST:
+				ret[0] = ParallelPickOTUsBlast.title;
+				ret[1] = ParallelPickOTUsBlast.b_desc;
+				break;
+			case PARALLEL_PICK_OTUS_SORTMERNA:
+				ret[0] = ParallelPickOTUsSortmerna.title;
+				ret[1] = ParallelPickOTUsSortmerna.b_desc;
+				break;
+			case PARALLEL_PICK_OTUS_TRIE:
+				ret[0] = ParallelPickOTUsTrie.title;
+				ret[1] = ParallelPickOTUsTrie.b_desc;
+				break;
+			case PARALLEL_PICK_OTUS_UCLUST_REF:
+				ret[0] = ParallelPickOTUsUclustRef.title;
+				ret[1] = ParallelPickOTUsUclustRef.b_desc;
+				break;
+			case PARALLEL_PICK_OTUS_USEARCH_REF:
+				ret[0] = ParallelPickOTUsUsearch61Ref.title;
+				ret[1] = ParallelPickOTUsUsearch61Ref.b_desc;
+				break;
+			case PICK_CLOSED_REF_OTUS:
+				ret[0] = PickClosedRefOTUs.title;
+				ret[1] = PickClosedRefOTUs.b_desc;
+				break;
+			case PICK_DE_NOVO_OTUS:
+				ret[0] = PickDeNovoOTUs.title;
+				ret[1] = PickDeNovoOTUs.b_desc;
+				break;
+			case PICK_OPEN_REF_OTUS:
+				ret[0] = PickOpenRefOTUs.title;
+				ret[1] = PickOpenRefOTUs.b_desc;
+				break;
+			case PICK_OTUS:
+				ret[0] = PickOTUs.title;
+				ret[1] = PickOTUs.b_desc;
+				break;
+			case PICK_REP_SET:
+				ret[0] = PickRepSet.title;
+				ret[1] = PickRepSet.b_desc;
+				break;
+			case PLOT_RANK_ABUND_GRAPH:
+				ret[0] = PlotRankAbundance.title;
+				ret[1] = PlotRankAbundance.b_desc;
+				break;
+			case PLOT_SEMIVARIOGRAM:
+				ret[0] = PlotSemivariogram.title;
+				ret[1] = PlotSemivariogram.b_desc;
+				break;
+			case PLOT_TAXA_SUMMARY:
+				ret[0] = PlotTaxaSummary.title;
+				ret[1] = PlotTaxaSummary.b_desc;
+				break;
+			case POLLER:
+				ret[0] = Poller.title;
+				ret[1] = Poller.b_desc;
+				break;
+			case PRINCIPAL_COORDINATES:
+				ret[0] = PrincipalCoordinates.title;
+				ret[1] = PrincipalCoordinates.b_desc;
+				break;
+			case PRINT_METADATA_STATS:
+				ret[0] = PrintMetadataStats.title;
+				ret[1] = PrintMetadataStats.b_desc;
+				break;
+			case PRINT_QIIME_CONFIG:
+				ret[0] = PrintQiimeConfig.title;
+				ret[1] = PrintQiimeConfig.b_desc;
+				break;
+			case PROCESS_ISEQ:
+				ret[0] = ProcessISeq.title;
+				ret[1] = ProcessISeq.b_desc;
+				break;
+			case PROCESS_QSEQ:
+				ret[0] = ProcessQSeq.title;
+				ret[1] = ProcessQSeq.b_desc;
+				break;
+			case PROCESS_SFF:
+				ret[0] = ProcessSFF.title;
+				ret[1] = ProcessSFF.b_desc;
+				break;
+			case QUALITY_SCORES_PLOT:
+				ret[0] = QualityScoresPlot.title;
+				ret[1] = QualityScoresPlot.b_desc;
+				break;
+			case RELATEDNESS:
+				ret[0] = Relatedness.title;
+				ret[1] = Relatedness.b_desc;
+				break;
+			case SHARED_PHYLOTYPES:
+				ret[0] = SharedPhylotypes.title;
+				ret[1] = SharedPhylotypes.b_desc;
+				break;
+			case SIMSAM:
+				ret[0] = Simsam.title;
+				ret[1] = Simsam.b_desc;
+				break;
+			case SINGLE_RAREFACTIONS:
+				ret[0] = SingleRarefaction.title;
+				ret[1] = SingleRarefaction.b_desc;
+				break;
+			case SORT_OTU_TABLE:
+				ret[0] = SortOTUTable.title;
+				ret[1] = SortOTUTable.b_desc;
+				break;
+			case SPLIT_LIBRARIES:
+				ret[0] = SplitLibraries.title;
+				ret[1] = SplitLibraries.b_desc;
+				break;
+			case SPLIT_LIBRARIES_FASTQ:
+				ret[0] = SplitLibrariesFASTQ.title;
+				ret[1] = SplitLibrariesFASTQ.b_desc;
+				break;
+			case SPLIT_LIBRARIES_LEA_SEQ:
+				ret[0] = SplitLibrariesLea.title;
+				ret[1] = SplitLibrariesLea.b_desc;
+				break;
 		}
 		return ret;
 	}
@@ -1474,6 +1634,126 @@ public class Categories {
 				break;
 			case OBSERVATION_METADATA_CORR:
 				ret = new ObsMetaCore();
+				break;
+			case PARALLEL_ALPHA_DIVERSITY:
+				ret = new ParallelAlphaDiv();
+				break;
+			case PARALLEL_ALIGN_SEQS_PYNAST:
+				ret = new ParallelAlignSeqsPynast();
+				break;
+			case PARALLEL_ASSIGN_TAX_BLAST:
+				ret = new ParallelAssignTaxBlast();
+				break;
+			case PARALLEL_ASSIGN_TAX_RDP:
+				ret = new ParallelAssignTaxRDP();
+				break;
+			case PARALLEL_ASSIGN_TAX_UCLUST:
+				ret = new ParallelAssignTaxUclust();
+				break;
+			case PARALLEL_BETA_DIVERSITY:
+				ret = new ParallelBetaDiversity();
+				break;
+			case PARALLEL_BLAST:
+				ret = new ParallelBlast();
+				break;
+			case PARALLEL_IDENTIFY_CHEM_SEQS:
+				ret = new ParallelIdentifyChemSeqs();
+				break;
+			case PARALLEL_MAP_READS_REF:
+				ret = new ParallelMapReadsToRef();
+				break;
+			case PARALLEL_MERGE_OTU_TABLES:
+				ret = new ParallelMergeOTUTables();
+				break;
+			case PARALLEL_MULTIPLE_RAREFACTIONS:
+				ret = new ParallelMultipleRarefactions();
+				break;
+			case PARALLEL_PICK_OTUS_BLAST:
+				ret = new ParallelPickOTUsBlast();
+				break;
+			case PARALLEL_PICK_OTUS_SORTMERNA:
+				ret = new ParallelPickOTUsSortmerna();
+				break;
+			case PARALLEL_PICK_OTUS_TRIE:
+				ret = new ParallelPickOTUsTrie();
+				break;
+			case PARALLEL_PICK_OTUS_UCLUST_REF:
+				ret = new ParallelPickOTUsUclustRef();
+				break;
+			case PARALLEL_PICK_OTUS_USEARCH_REF:
+				ret = new ParallelPickOTUsUsearch61Ref();
+				break;
+			case PICK_CLOSED_REF_OTUS:
+				ret = new PickClosedRefOTUs();
+				break;
+			case PICK_DE_NOVO_OTUS:
+				ret = new PickDeNovoOTUs();
+				break;
+			case PICK_OPEN_REF_OTUS:
+				ret = new PickOpenRefOTUs();
+				break;
+			case PICK_OTUS:
+				ret = new PickOTUs();
+				break;
+			case PICK_REP_SET:
+				ret = new PickRepSet();
+				break;
+			case PLOT_RANK_ABUND_GRAPH:
+				ret = new PlotRankAbundance();
+				break;
+			case PLOT_SEMIVARIOGRAM:
+				ret = new PlotSemivariogram();
+				break;
+			case PLOT_TAXA_SUMMARY:
+				ret = new PlotTaxaSummary();
+				break;
+			case POLLER:
+				ret = new Poller();
+				break;
+			case PRINCIPAL_COORDINATES:
+				ret = new PrincipalCoordinates();
+				break;
+			case PRINT_METADATA_STATS:
+				ret = new PrintMetadataStats();
+				break;
+			case PRINT_QIIME_CONFIG:
+				ret = new PrintQiimeConfig();
+				break;
+			case PROCESS_ISEQ:
+				ret = new ProcessISeq();
+				break;
+			case PROCESS_QSEQ:
+				ret = new ProcessQSeq();
+				break;
+			case SINGLE_RAREFACTIONS:
+				ret = new SingleRarefaction();
+				break;
+			case PROCESS_SFF:
+				ret = new ProcessSFF();
+				break;
+			case QUALITY_SCORES_PLOT:
+				ret = new QualityScoresPlot();
+				break;
+			case RELATEDNESS:
+				ret = new Relatedness();
+				break;
+			case SHARED_PHYLOTYPES:
+				ret = new SharedPhylotypes();
+				break;
+			case SIMSAM:
+				ret = new Simsam();
+				break;
+			case SORT_OTU_TABLE:
+				ret = new SortOTUTable();
+				break;
+			case SPLIT_LIBRARIES:
+				ret = new SplitLibraries();
+				break;
+			case SPLIT_LIBRARIES_FASTQ:
+				ret = new SplitLibrariesFASTQ();
+				break;
+			case SPLIT_LIBRARIES_LEA_SEQ:
+				ret = new SplitLibrariesLea();
 				break;
 		}
 		return ret;

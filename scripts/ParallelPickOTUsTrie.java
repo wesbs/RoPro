@@ -4,11 +4,11 @@ import java.io.*;
 import java.lang.String;
 import java.util.*;
 
-public class BlastWrapper extends Script {
+public class ParallelPickOTUsTrie extends Script {
 	public static String title = "Parallel Pick OTUs using Trie";
 	public static String b_desc = "Parallel pick otus using a trie";
 
-	public BlastWrapper() {
+	public ParallelPickOTUsTrie() {
 		// set up script name, command, and descriptions
 		this.link = "http://qiime.org/scripts/parallel_pick_otus_trie.html";
 		this.c_name = SCRIPTS_PATH + "parallel_pick_otus_trie.py";
