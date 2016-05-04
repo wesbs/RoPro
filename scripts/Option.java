@@ -167,8 +167,11 @@ public class Option {
 	}
 
 	public void setInput(String s){
-		if (this.type == INPUT)
+		System.out.println("HEEERRRRR");
+		if (this.type == INPUT){
 			this.path = s;
+			System.out.println(this.path);
+		}
 	}
 
 	public String getInput(){
@@ -265,6 +268,28 @@ public class Option {
 		this.on = false;
 	}
 
+	// for type PATH and varibale amount of files
+	public void addFile(String path){
+		if (this.type == PATH && this.getNumFiles() == 0){
+			this.selections.add(path);
+		}
+	}
+
+	// for tpye PATH and varibale amount of files
+	public boolean removeFile(String path){
+		if (this.type == PATH && this.getNumFiles() == 0){
+			return this.selections.remove(path);
+		}
+		return false;
+	}
+
+		// for tpye PATH and varibale amount of files
+	public void removeFile(int index){
+		if (this.type == PATH && this.getNumFiles() == 0){
+			this.selections.remove(index);
+		}
+	}
+
 	// private function to make sure selections is filled out
 	private boolean listFull(int size){
 		for (int i =0 ; i < size; i++){
@@ -302,6 +327,8 @@ public class Option {
 					}
 					else {
 						// do something
+						if (this.selections.size() > 0)
+							return true;
 					}
 					break;
 				case NOARG:
@@ -342,6 +369,12 @@ public class Option {
 				}
 				else {
 					// do something
+					StringBuilder sb = new StringBuilder(flag + " ");
+					if (this.selections.size() > 0){
+						for (int i = 0; i < this.selections.size(); i++)
+							sb.append("," + this.selections.get(i));
+					}
+					retString = sb.toString();
 				}
 				break;
 			case NOARG:
@@ -376,18 +409,24 @@ public class Option {
 				arg = Float.toString(this.value);
 				break;
 			case PATH:
-				arg = this.path;
+				if (this.getNumFiles() == 1)
+					arg = this.path;
+				else {
+					StringBuilder list = new StringBuilder();
+					for (int i = 0; i < this.selections.size()-1; i++){
+						list.append(this.selections.get(i) + ",");
+					}
+					list.append(this.selections.get(this.selections.size()-1));
+					arg = list.toString();
+				}
 				break;
 			case NOARG:
 				arg = null;
 				break;
 			case LIST:
-				StringBuilder list = new StringBuilder();
-				for (int i = 0; i < this.selections.size()-1; i++){
-					list.append(this.selections.get(i) + ", ");
-				}
-				list.append(this.selections.get(this.selections.size()-1));
-				arg = list.toString();
+				break;
+			case INPUT:
+				arg = this.getInput();
 				break;
 		}
 		return arg;

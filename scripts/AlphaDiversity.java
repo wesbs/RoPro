@@ -22,7 +22,7 @@ public class AlphaDiversity extends Script {
 		this.e_options = new ArrayList<Option>(5);
 		this.e_options.add(new Option("Input OTU Table", "-i", Option.PATH, "Input OTU table filepath or input directory containing OTU tables for batch processing. [default: None]"));
 		this.e_options.add(new Option("Output", "-o", Option.PATH, "Output filepath to store alpha diversity metric(s) for each sample in a tab-separated format or output directory when batch processing. [default: None]"));
-		this.e_options.add(new Option("Aplha Metric", "-m", Option.LIST, "Alpha-diversity metric(s) to use. A comma-separated list should be provided when multiple metrics are specified. [default: PD_whole_tree,chao1,observed_otus]"));
+		this.e_options.add(new Option("Aplha Metric", "-m", Option.INPUT, "Alpha-diversity metric(s) to use. A comma-separated list should be provided when multiple metrics are specified. [default: PD_whole_tree,chao1,observed_otus]"));
 		this.e_options.add(new Option("Show Metrics", "-s", Option.NOARG, "Show the available alpha-diversity metrics and exit."));
 		this.e_options.add(new Option("Tree File", "-t", Option.PATH, "Input newick tree filepath. [default: None; REQUIRED for phylogenetic metrics]"));
 	

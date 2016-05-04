@@ -5,7 +5,7 @@ import java.lang.String;
 import java.util.*;
 
 public class MapReadsToRef extends Script {
-	public static String title = "Map REads to Refernece File";
+	public static String title = "Map Reads to Refernece File";
 	public static String b_desc = "Script for performing assignment of reads against a reference database";
 
 	public MapReadsToRef() {

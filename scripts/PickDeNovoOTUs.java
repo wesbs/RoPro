@@ -5,7 +5,7 @@ import java.lang.String;
 import java.util.*;
 
 public class PickDeNovoOTUs extends Script {
-	public static String title = "Pick De Noco OTUs";
+	public static String title = "Pick De Novo OTUs";
 	public static String b_desc = "A workflow for de novo OTU picking, taxonomy assignment, phylogenetic tree construction, and OTU table construction.";
 
 	public PickDeNovoOTUs() {

@@ -771,10 +771,12 @@ public class Categories {
 	}
 
 	private static int[] getAllScripts(){
-		int[] all = new int[TOTAL_SCRIPTS];
-		for (int i = 0; i < all.length; i++)
-			all[i] = i + 1; // scripts start at 1
-		return all;
+		List<Integer> all = new ArrayList<Integer>();
+		for (int i = 1; i < TOTAL_SCRIPTS; i++){
+			if (i != CYTOSCAPE_USAGE)
+				all.add(new Integer(i));
+		}
+		return intListtoArray(all);
 	}
 
 	public static int[] getCategory(String catName){
@@ -1361,6 +1363,90 @@ public class Categories {
 				ret[0] = SplitLibrariesLea.title;
 				ret[1] = SplitLibrariesLea.b_desc;
 				break;
+			case SPLIT_OTU_TABLE:
+				ret[0] = SplitOTUTable.title;
+				ret[1] = SplitOTUTable.b_desc;
+				break;
+			case SPLIT_OTU_TABLE_TAX:
+				ret[0] = SplitOTUTableTax.title;
+				ret[1] = SplitOTUTableTax.b_desc;
+				break;
+			case SPLIT_SEQ_SAMPLE:
+				ret[0] = SplitSeqFileSample.title;
+				ret[1] = SplitSeqFileSample.b_desc;
+				break;
+			case START_PARALLEL_JOBS:
+				ret[0] = StartParallelJobs.title;
+				ret[1] = StartParallelJobs.b_desc;
+				break;
+			case START_PARALLEL_JOBS_SC:
+				ret[0] = StartParallelJobsSC.title;
+				ret[1] = StartParallelJobsSC.b_desc;
+				break;
+			case START_PARALLEL_JOBS_SLURM:
+				ret[0] = StartParallelJobsSlurm.title;
+				ret[1] = StartParallelJobsSlurm.b_desc;
+				break;
+			case START_PARALLEL_JOBS_TORQUE:
+				ret[0] = StartParallelJobsTorque.title;
+				ret[1] = StartParallelJobsTorque.b_desc;
+				break;
+			case SUBSAMPLE_FASTA:
+				ret[0] = SubsampleFASTA.title;
+				ret[1] = SubsampleFASTA.b_desc;
+				break;
+			case SUMMARIZE_TAXA:
+				ret[0] = SummarizeTaxa.title;
+				ret[1] = SummarizeTaxa.b_desc;
+				break;
+			case SUMMARIZE_TAXA_PLOTS:
+				ret[0] = SummarizeTaxaPlots.title;
+				ret[1] = SummarizeTaxaPlots.b_desc;
+				break;
+			case SUPERVISED_LEARNING:
+				ret[0] = SupervisedLearning.title;
+				ret[1] = SupervisedLearning.b_desc;
+				break;
+			case TRANSFORM_COORDINATE_MATRICIES:
+				ret[0] = TransformCoordMatricies.title;
+				ret[1] = TransformCoordMatricies.b_desc;
+				break;
+			case TREE_COMPARE:
+				ret[0] = TreeCompare.title;
+				ret[1] = TreeCompare.b_desc;
+				break;
+			case TRFLP_TO_OTU:
+				ret[0] = TRFLPtoOTU.title;
+				ret[1] = TRFLPtoOTU.b_desc;
+				break;
+			case TRIM_SFF_PRIMERS:
+				ret[0] = TrimSFFPrimers.title;
+				ret[1] = TrimSFFPrimers.b_desc;
+				break;
+			case TRUNC_FASTA_QUAL:
+				ret[0] = TruncFASTAQUAL.title;
+				ret[1] = TruncFASTAQUAL.b_desc;
+				break;
+			case TRUNC_REVERSE_PRIMER:
+				ret[0] = TruncReversePrimer.title;
+				ret[1] = TruncReversePrimer.b_desc;
+				break;
+			case UNWEIGHT_FASTA:
+				ret[0] = UnweightFASTA.title;
+				ret[1] = UnweightFASTA.b_desc;
+				break;
+			case UPGMA_CLUSTER:
+				ret[0] = UPGMACluster.title;
+				ret[1] = UPGMACluster.b_desc;
+				break;
+			case VALIDATE_DEMULTIPLEX_FASTA:
+				ret[0] = ValidateDemulFASTA.title;
+				ret[1] = ValidateDemulFASTA.b_desc;
+				break;
+			case VALIDATE_MAP_FILE:
+				ret[0] = ValidateMappingFile.title;
+				ret[1] = ValidateMappingFile.b_desc;
+				break;
 		}
 		return ret;
 	}
@@ -1754,6 +1840,69 @@ public class Categories {
 				break;
 			case SPLIT_LIBRARIES_LEA_SEQ:
 				ret = new SplitLibrariesLea();
+				break;
+			case SPLIT_OTU_TABLE:
+				ret = new SplitOTUTable();
+				break;
+			case SPLIT_OTU_TABLE_TAX:
+				ret = new SplitOTUTableTax();
+				break;
+			case SPLIT_SEQ_SAMPLE:
+				ret = new SplitSeqFileSample();
+				break;
+			case START_PARALLEL_JOBS:
+				ret = new StartParallelJobs();
+				break;
+			case START_PARALLEL_JOBS_SC:
+				ret = new StartParallelJobsSC();
+				break;
+			case START_PARALLEL_JOBS_SLURM:
+				ret = new StartParallelJobsSlurm();
+				break;
+			case START_PARALLEL_JOBS_TORQUE:
+				ret = new StartParallelJobsTorque();
+				break;
+			case SUBSAMPLE_FASTA:
+				ret = new SubsampleFASTA();
+				break;
+			case SUMMARIZE_TAXA:
+				ret = new SummarizeTaxa();
+				break;
+			case SUMMARIZE_TAXA_PLOTS:
+				ret = new SummarizeTaxaPlots();
+				break;
+			case SUPERVISED_LEARNING:
+				ret = new SupervisedLearning();
+				break;
+			case TRANSFORM_COORDINATE_MATRICIES:
+				ret = new TransformCoordMatricies();
+				break;
+			case TREE_COMPARE:
+				ret = new TreeCompare();
+				break;
+			case TRFLP_TO_OTU:
+				ret = new TRFLPtoOTU();
+				break;
+			case TRIM_SFF_PRIMERS:
+				ret = new TrimSFFPrimers();
+				break;
+			case TRUNC_FASTA_QUAL:
+				ret = new TruncFASTAQUAL();
+				break;
+			case TRUNC_REVERSE_PRIMER:
+				ret = new TruncReversePrimer();
+				break;
+			case UNWEIGHT_FASTA:
+				ret = new UnweightFASTA();
+				break;
+			case UPGMA_CLUSTER:
+				ret = new UPGMACluster();
+				break;
+			case VALIDATE_DEMULTIPLEX_FASTA:
+				ret = new ValidateDemulFASTA();
+				break;
+			case VALIDATE_MAP_FILE:
+				ret = new ValidateMappingFile();
 				break;
 		}
 		return ret;

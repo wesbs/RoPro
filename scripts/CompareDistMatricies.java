@@ -22,7 +22,7 @@ public class CompareDistMatricies extends Script {
 		selects.add("partial_mantel");
 		selects.add("mantel_corr");
 		this.r_options.add(new Option("Method", "--method", Option.SELECT, selects, "Matrix correlation method to use. Valid options: [mantel, partial_mantel, mantel_corr]"));
-		this.r_options.add(new Option("Distance Matricies", "-i", Option.PATH, "The input distance matrices, comma-separated. WARNING: Only symmetric, hollow distance matrices may be used as input. Asymmetric distance matrices, such as those obtained by the UniFrac Gain metric (i.e. beta_diversity.py -m unifrac_g), should not be used as input"));
+		this.r_options.add(new Option("Distance Matricies", "-i", Option.PATH, 0, "The input distance matrices, comma-separated. WARNING: Only symmetric, hollow distance matrices may be used as input. Asymmetric distance matrices, such as those obtained by the UniFrac Gain metric (i.e. beta_diversity.py -m unifrac_g), should not be used as input"));
 		this.r_options.add(new Option("Output", "-o", Option.PATH, "Path to the output directory"));
 
 		// set up the extra options

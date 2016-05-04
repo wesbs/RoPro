@@ -6,7 +6,7 @@ import java.util.*;
 
 
 public class Script {
-	protected static final String SCRIPTS_PATH = "scripts/scripts/";
+	public static String SCRIPTS_PATH = null;
 
 	public static String title;							// name of script
 	protected String link;							// link to script webpage
@@ -58,6 +58,10 @@ public class Script {
 	// 		this.r_options = required;
 	// 		this.e_options = optional;
 	// }	
+
+	public static void setScriptPath(String path){
+		SCRIPTS_PATH = path;
+	}
 
 	// returns the script title
 	public String getTitle(){
@@ -277,41 +281,41 @@ public class Script {
 		return found;
 	}
 
-	public static void main(String args[]){
-		// List<String> ss = new ArrayList<String>();
-		// ss.add("Elephant");
-		// ss.add("Dog");
-		// ss.add("Horse");
-		// List<Option> ops = new ArrayList<Option>();
-		// Option op1 = new Option("-i", 2, "Fasting_Example.sff");
-		// ops.add(op1);
-		// Option op2 = new Option("-o", 2, "test_output/");
-		// ops.add(op2);
-		// Option op3 = new Option("-n", 1, 20);
-		// ops.add(op3);
-		// Option op4 = new Option("-S", 0, ss);
-		// op4.setSelected(2);
-		// ops.add(op4);
-		// Option op5 = new Option("-N", 1);
-		// ops.add(op5);
+	// public static void main(String args[]){
+	// 	// List<String> ss = new ArrayList<String>();
+	// 	// ss.add("Elephant");
+	// 	// ss.add("Dog");
+	// 	// ss.add("Horse");
+	// 	// List<Option> ops = new ArrayList<Option>();
+	// 	// Option op1 = new Option("-i", 2, "Fasting_Example.sff");
+	// 	// ops.add(op1);
+	// 	// Option op2 = new Option("-o", 2, "test_output/");
+	// 	// ops.add(op2);
+	// 	// Option op3 = new Option("-n", 1, 20);
+	// 	// ops.add(op3);
+	// 	// Option op4 = new Option("-S", 0, ss);
+	// 	// op4.setSelected(2);
+	// 	// ops.add(op4);
+	// 	// Option op5 = new Option("-N", 1);
+	// 	// ops.add(op5);
 
-		// Script test = new Script("Process SFF file", "scripts/scripts/process_sff.py", "create some files from an sff file", ops);
-		AlignSeqs test = new AlignSeqs();
-		System.out.println(test.getTitle());
-		System.out.println(test.getCommand());
-		System.out.println(test.getBriefDesc());
-		System.out.println(test.getReqOptionsString());
-		System.out.println(test.getCommandLineString());
-		System.out.println("-----------------------------\n\n\n");
+	// 	// Script test = new Script("Process SFF file", "scripts/scripts/process_sff.py", "create some files from an sff file", ops);
+	// 	AlignSeqs test = new AlignSeqs();
+	// 	System.out.println(test.getTitle());
+	// 	System.out.println(test.getCommand());
+	// 	System.out.println(test.getBriefDesc());
+	// 	System.out.println(test.getReqOptionsString());
+	// 	System.out.println(test.getCommandLineString());
+	// 	System.out.println("-----------------------------\n\n\n");
 
-		List<Option> ops = test.getReqOptions();
-		ops.get(0).setPath("Fasting_Example.fna");
-		System.out.println("Size: " + ops.size());
-		System.out.println("*************");
+	// 	List<Option> ops = test.getReqOptions();
+	// 	ops.get(0).setPath("Fasting_Example.fna");
+	// 	System.out.println("Size: " + ops.size());
+	// 	System.out.println("*************");
 
-		// ScriptRunner.runScript(test.getCommand());
-		// ScriptRunner.runScript("pwd");
-		ScriptRunner.runScript(test.getCommand(), test.getRunningOptions());
-	}
+	// 	// ScriptRunner.runScript(test.getCommand());
+	// 	// ScriptRunner.runScript("pwd");
+	// 	ScriptRunner.runScript(test.getCommand(), test.getRunningOptions());
+	// }
 
 }

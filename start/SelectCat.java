@@ -1,33 +1,3 @@
-/*
- * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- *   - Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *
- *   - Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *
- *   - Neither the name of Oracle or the names of its
- *     contributors may be used to endorse or promote products derived
- *     from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- * IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
 
 package start;
 
@@ -47,6 +17,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.border.*;
 import scripts.*;
+import java.io.PrintWriter;
+
 
 public class SelectCat {
     JFrame frame;
@@ -55,26 +27,34 @@ public class SelectCat {
     private static final int TITLE_FONT_SIZE = 15;
     private static final int SUBSCRIPT_FONT_SIZE = 10;
     private static final int BUTTON_FONT_SIZE = 14;
+    private PrintWriter pw;
+
+    public SelectCat(PrintWriter pw){
+        this.pw = pw;
+        this.pw.println("Select Category Screen Opening");
+        this.run();
+    }
+
+    private void print(String s){
+        this.pw.println(s);
+    }
     
-    public static void addComponentsToPane(Container pane, JFrame frame) {
+    public void addComponentsToPane(Container pane, JFrame frame) {
 
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
         // scripts descriptions
         JLabel intro = new JLabel("<html>" + INTRO + "</html>");
-        // intro.setFont(new Font(label.getFont().getFontName(), Font.BOLD, label.getFont().getSize()));
         intro.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border introBorder = BorderFactory.createEmptyBorder(10,20,15,20);
         Border introBorder2 = BorderFactory.createMatteBorder(0,0,1,0, Color.BLACK);
         intro.setBorder(BorderFactory.createCompoundBorder(introBorder2,introBorder));
         pane.add(intro);
-        System.out.println("Size: " + intro.getFont().getSize());
 
         // line under intro
 
         // file intput category description
         JPanel panel1 = new JPanel(); 
-        // panel1.setBackground(Color.ORANGE);
         panel1.setMaximumSize(new Dimension(795,50));
         panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel fileinD = new JLabel("<html><u>Scripts By Input File Type:</u></html>");
@@ -85,20 +65,14 @@ public class SelectCat {
         panel1.add(fileinD);
         JLabel sidenote1 = new JLabel("(If the file type you are looking for isn't listed, select 'OTHER')");
         sidenote1.setFont(new Font(sidenote1.getFont().getFontName(), Font.PLAIN, SUBSCRIPT_FONT_SIZE));
-        // fileinD.setAlignmentX(Component.LEFT_ALIGNMENT);
         Border sidenote1Border = BorderFactory.createEmptyBorder(13,10,0,0);
         sidenote1.setBorder(BorderFactory.createCompoundBorder(sidenote1.getBorder(),sidenote1Border));
         panel1.add(sidenote1);
         pane.add(panel1);
-        System.out.println("Panel1: ");
-        System.out.println("Height: " + panel1.getHeight());
-        System.out.println("Width: " + panel1.getWidth());
-        System.out.println("----> " + BetaDiversityPlots.title);
 
         // file input category buttons
         JPanel buttonpanel = new JPanel(); 
         buttonpanel.setMaximumSize(new Dimension(790, 100));
-        // buttonpanel.setBackground(Color.CYAN);
         buttonpanel.setLayout(new GridLayout(3,3));
         Border panelBorder = BorderFactory.createEmptyBorder(10,10,15,10);
         Border panelBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
@@ -110,7 +84,9 @@ public class SelectCat {
             catButton.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e) { 
                 frame.dispose();
-                ScriptSelect scriptS = new ScriptSelect("Input " + cat);
+                // this.print("Category Selected: Input " + cat);
+                // this.print("Opening Script Select Form. Closing Category Screen");
+                ScriptSelect scriptS = new ScriptSelect("Input " + cat, pw);
                 // scriptS.createAndShowGUI();
                 // System.exit(0);
               } 
@@ -121,7 +97,6 @@ public class SelectCat {
 
         // file output category description
         JPanel panel2 = new JPanel(); 
-        // panel1.setBackground(Color.ORANGE);
         panel2.setMaximumSize(new Dimension(795,50));
         panel2.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel fileoutD = new JLabel("<html><u>Scripts By Output File Type:</u></html>");
@@ -132,7 +107,6 @@ public class SelectCat {
         panel2.add(fileoutD);
         JLabel sidenote2 = new JLabel("(If the file type you are looking for isn't listed, select 'OTHER')");
         sidenote2.setFont(new Font(sidenote2.getFont().getFontName(), Font.PLAIN, SUBSCRIPT_FONT_SIZE));
-        // fileinD.setAlignmentX(Component.LEFT_ALIGNMENT);
         Border sidenote2Border = BorderFactory.createEmptyBorder(13,10,0,0);
         sidenote2.setBorder(BorderFactory.createCompoundBorder(sidenote2.getBorder(),sidenote2Border));
         panel2.add(sidenote2);
@@ -141,21 +115,20 @@ public class SelectCat {
         // file output category buttons
         buttonpanel = new JPanel(); 
         buttonpanel.setMaximumSize(new Dimension(790, 100));
-        // buttonpanel.setBackground(Color.CYAN);
         buttonpanel.setLayout(new GridLayout(3,3));
         panelBorder = BorderFactory.createEmptyBorder(10,10,15,10);
         panelBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         buttonpanel.setBorder(BorderFactory.createCompoundBorder(panelBorder2,panelBorder));
-        // button1 = new JButton(Categories.OUTPUT_CAT_NAMES[0]);
-        // Border buttonBorder = BorderFactory.createEmptyBorder(10,10,10,10);
-        // button1.setBorder(BorderFactory.createEmptyBorder(10,15,15,10));
         for (int i = 0; i < Categories.OUTPUT_CAT_NAMES.length; i++){
             catButton = new JButton(Categories.OUTPUT_CAT_NAMES[i]);
             final String cat = Categories.OUTPUT_CAT_NAMES[i];
             catButton.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e) { 
                 frame.dispose();
-                ScriptSelect scriptS = new ScriptSelect("Output " + cat);
+                // this.print("Category Selected: Output " + cat);
+                // this.print("Opening Script Select Form. Closing Category Screen");
+
+                ScriptSelect scriptS = new ScriptSelect("Output " + cat, pw);
                 // scriptS.createAndShowGUI();
                 // System.exit(0);
               } 
@@ -167,7 +140,6 @@ public class SelectCat {
 
         // file function category description
         JPanel panel3 = new JPanel(); 
-        // panel1.setBackground(Color.ORANGE);
         panel3.setMaximumSize(new Dimension(795,50));
         panel3.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel filefuncD = new JLabel("<html><u>Scripts By Function:</u></html>");
@@ -178,7 +150,6 @@ public class SelectCat {
         panel3.add(filefuncD);
         JLabel sidenote3 = new JLabel("(If the function you are looking for isn't listed, select 'OTHER')");
         sidenote3.setFont(new Font(sidenote3.getFont().getFontName(), Font.PLAIN, SUBSCRIPT_FONT_SIZE));
-        // fileinD.setAlignmentX(Component.LEFT_ALIGNMENT);
         Border sidenote3Border = BorderFactory.createEmptyBorder(13,10,0,0);
         sidenote3.setBorder(BorderFactory.createCompoundBorder(sidenote3.getBorder(),sidenote3Border));
         panel3.add(sidenote3);
@@ -187,21 +158,20 @@ public class SelectCat {
         // file function category buttons
         buttonpanel = new JPanel(); 
         buttonpanel.setMaximumSize(new Dimension(790, 100));
-        // buttonpanel.setBackground(Color.CYAN);
         buttonpanel.setLayout(new GridLayout(3,3));
         panelBorder = BorderFactory.createEmptyBorder(10,10,15,10);
         panelBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         buttonpanel.setBorder(BorderFactory.createCompoundBorder(panelBorder2,panelBorder));
-        // button1 = new JButton(Categories.FUNC_CAT_NAMES[0]);
-        // Border buttonBorder = BorderFactory.createEmptyBorder(10,10,10,10);
-        // button1.setBorder(BorderFactory.createEmptyBorder(10,15,15,10));
         for (int i = 0; i < Categories.FUNC_CAT_NAMES.length; i++){
             catButton = new JButton(Categories.FUNC_CAT_NAMES[i]);
             final String cat = Categories.FUNC_CAT_NAMES[i];
             catButton.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e) { 
                 frame.dispose();
-                ScriptSelect scriptS = new ScriptSelect("Func " + cat);
+                // this.print("Category Selected: Function " + cat);
+                // this.print("Opening Script Select Form. Closing Category Screen");
+
+                ScriptSelect scriptS = new ScriptSelect("Func " + cat, pw);
                 // scriptS.createAndShowGUI();
                 // System.exit(0);
               } 
@@ -215,7 +185,10 @@ public class SelectCat {
         as_button.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                ScriptSelect scriptS = new ScriptSelect("All Scripts");
+                // this.print("Category Selected: All Scripts");
+                // this.print("Opening Script Select Form. Closing Category Screen");
+
+                ScriptSelect scriptS = new ScriptSelect("All Scripts", pw);
             }
         });
         as_button.setPreferredSize(new Dimension(200, 40));
@@ -224,7 +197,10 @@ public class SelectCat {
         wf_button.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                ScriptSelect scriptS = new ScriptSelect("Workflow");
+                // this.print("Category Selected: Workflow");
+                // this.print("Opening Script Select Form. Closing Category Screen");
+
+                ScriptSelect scriptS = new ScriptSelect("Workflow", pw);
             }
         });
         wf_button.setPreferredSize(new Dimension(200, 40));
@@ -249,7 +225,7 @@ public class SelectCat {
      * this method should be invoked from the
      * event dispatch thread.
      */
-    private static void createAndShowGUI() {
+    private void createAndShowGUI() {
         
         //Create and set up the window.
         JFrame frame = new JFrame("Script Categories");
@@ -258,18 +234,11 @@ public class SelectCat {
 
         //Set up the content pane.
         Container pane = frame.getContentPane();
-        // BorderLayout bl = pane.getLayout();
-        // bl.setHgap(2);
-        // bl.getVgap(1);
         addComponentsToPane(pane, frame);
-        //Use the content pane's default BorderLayout. No need for
-        // setLayout(new BorderLayout());
-        //Display the window.
-        // frame.pack();
         frame.setVisible(true);
     }
     
-    public static void run() {
+    public void run() {
         /* Use an appropriate Look and Feel */
         try {
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");

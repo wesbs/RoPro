@@ -22,7 +22,7 @@ public class CompareTaxaSummary extends Script {
 		List<String> selects = new ArrayList<String>();
 		selects.add("paired");
 		selects.add("expected");
-		this.r_options.add(new Option("Comparison Mode", "-m", Option.SELECT, "The type of comparison to perform. Valid choices: paired or expected. “paired” will compare each sample in the taxa summary files that match based on sample ID, or that match given a sample ID map (see the –sample_id_map_fp option for more information). “expected” will compare each sample in the first taxa summary file to an expected sample (contained in the second taxa summary file). If “expected”, the second taxa summary file must contain only a single sample that all other samples will be compared to (unless the –expected_sample_id option is provided)"));
+		this.r_options.add(new Option("Comparison Mode", "-m", Option.SELECT, selects, "The type of comparison to perform. Valid choices: paired or expected. “paired” will compare each sample in the taxa summary files that match based on sample ID, or that match given a sample ID map (see the –sample_id_map_fp option for more information). “expected” will compare each sample in the first taxa summary file to an expected sample (contained in the second taxa summary file). If “expected”, the second taxa summary file must contain only a single sample that all other samples will be compared to (unless the –expected_sample_id option is provided)"));
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(7);
