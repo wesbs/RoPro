@@ -100,7 +100,7 @@ public class ScriptRunner {
 			// new Thread(new Printer(stdErr, this.destination)).start();		// read standard error
 
       p.waitFor();	// wait for process to complete
-      this.destination.append("\n\n***************** SCRIPT FINISHED *****************\n");
+      this.destination.append("\n\n***************** SCRIPT FINISHED ******************\n");
 		}
 		catch (IOException | InterruptedException | InvocationTargetException e) {
 			System.out.println(e.getMessage());

@@ -17,7 +17,7 @@ public class ConvertFASTA extends Script {
 
 		// set up the required otpions
 		this.r_options = new ArrayList<Option>(1);
-		this.r_options.add(new Option("Input File", "-i", Option.PATH, "Input FASTA or FASTQ file."));
+		this.r_options.add(new Option("Input File", "-f", Option.PATH, "Input FASTA or FASTQ file."));
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(7);

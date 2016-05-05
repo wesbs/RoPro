@@ -5,13 +5,13 @@ import java.lang.String;
 import java.util.*;
 
 public class MakeQiimePython extends Script {
-	public static String title = "Make Qiime Pythong File";
+	public static String title = "Make Qiime Python File";
 	public static String b_desc = "Create python file";
 
 	public MakeQiimePython() {
 		// set up script name, command, and descriptions
 		this.link = "http://qiime.org/scripts/make_qiime_py_file.html";
-		this.c_name = SCRIPTS_PATH + "make_qiime_py_file";
+		this.c_name = SCRIPTS_PATH + "make_qiime_py_file.py";
 		this.l_desc = "This is a script which will add headers and footers to new python files and make them executable.";
 		this.output_desc = "The results of this script is either a python script, test, or library file, depending on the input parameters.";
 

@@ -40,7 +40,7 @@ public class MakeOTUHeatmap extends Script {
 		this.e_options.add(new Option("Height", "--height", Option.NUM, "Height of the figure in inches [default: 5]"));
 		this.e_options.add(new Option("Resolution", "--dpi", Option.NUM, "Resolution of the figure in dots per inch [default: value of savefig.dpi in matplotlibrc file]"));
 		this.e_options.add(new Option("Observation Category", "--obs_md_category", Option.INPUT, "Observation metadata category to plot [default: taxonomy]"));
-		this.e_options.add(new Option("Observatio Level", "--obs_md_level", Option.NUM, "The level of observation metadata to plot for hierarchical metadata [default: lowest level]"));
+		this.e_options.add(new Option("Observation Level", "--obs_md_level", Option.NUM, "The level of observation metadata to plot for hierarchical metadata [default: lowest level]"));
 	
 	}
 }

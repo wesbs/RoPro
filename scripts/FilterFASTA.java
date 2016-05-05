@@ -17,7 +17,7 @@ public class FilterFASTA extends Script {
 
 		// set up the required otpions
 		this.r_options = new ArrayList<Option>(2);
-		this.r_options.add(new Option("Input FASTA File", "-i", Option.PATH, "Path to the input fasta file"));
+		this.r_options.add(new Option("Input FASTA File", "-f", Option.PATH, "Path to the input fasta file"));
 		this.r_options.add(new Option("Output", "-o", Option.PATH, "The output fasta filepath"));
 
 		// set up the extra options

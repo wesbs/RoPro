@@ -23,7 +23,7 @@ public class Detrend extends Script {
 		this.e_options = new ArrayList<Option>(4);
 		this.e_options.add(new Option("Output", "-o", Option.PATH, "Path to output directory [default: .]"));
 		this.e_options.add(new Option("Metadata File", "-m", Option.PATH, "Path to metadata file [default: None]"));
-		this.e_options.add(new Option("Couln Header", "-c", Option.INPUT, "Column header for gradient variable in metadata table [default: None]"));
+		this.e_options.add(new Option("Column Header", "-c", Option.INPUT, "Column header for gradient variable in metadata table [default: None]"));
 		this.e_options.add(new Option("Suppress Prerotate", "-r", Option.NOARG, "Suppress pre-rotation of the coordinates for optimal detrending; not pre-rotating assumes that the curvature is symmetrical across the vertical axis [default: False]"));
 	
 	}

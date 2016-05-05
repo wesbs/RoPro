@@ -98,6 +98,22 @@ public class Option {
 	// 	this.path = path;
 	// }
 
+	public static String intString(float f){
+	  int holder = (int) f;
+	  String ret;
+	  System.out.println("Intial: " + f + "; Holder: " + holder);
+	  if (holder == f){
+	      System.out.println("Holder = Initial");
+	      ret = Integer.toString(holder);
+	  }
+	  else{
+	      System.out.println("Holder != Initial");
+	      ret = Float.toString(f);
+	  }
+	  return ret;
+  }
+
+
 	// returns the flag
 	public String getLabel(){
 		return this.label;
@@ -406,7 +422,7 @@ public class Option {
 					arg = this.selections.get(this.selected);
 				break;
 			case NUM:
-				arg = Float.toString(this.value);
+				arg = intString(this.value);
 				break;
 			case PATH:
 				if (this.getNumFiles() == 1)

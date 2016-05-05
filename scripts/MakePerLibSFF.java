@@ -23,8 +23,8 @@ public class MakePerLibSFF extends Script {
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(3);
 		this.e_options.add(new Option("Binary SFF", "-p", Option.PATH, "Path to sfffile binary [default: use sfffile in $PATH]"));
-		this.e_options.add(new Option("Use External SFF?", "--use_sfftools", Option.PATH, "Use external sfffile program instead of equivalent Python routines."));
-		this.e_options.add(new Option("Show Debug Output?", "--debug", Option.PATH, "Print debugging output to stdout [default: False]"));
+		this.e_options.add(new Option("Use External SFF", "--use_sfftools", Option.PATH, "Use external sfffile program instead of equivalent Python routines."));
+		this.e_options.add(new Option("Show Debug Output?", "--debug", Option.NOARG, "Print debugging output to stdout [default: False]"));
 	
 	}
 }

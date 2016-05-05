@@ -17,7 +17,7 @@ public class FixARBFASTA extends Script {
 
 		// set up the required otpions
 		this.r_options = new ArrayList<Option>(1);
-		this.r_options.add(new Option("FASTA File", "-i", Option.PATH, "Path to the input fasta file"));
+		this.r_options.add(new Option("FASTA File", "-f", Option.PATH, "Path to the input fasta file"));
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(1);

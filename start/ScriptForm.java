@@ -326,7 +326,7 @@ public class ScriptForm implements ActionListener{
                     case Option.INPUT:
                         // will be input field
                         JTextField input = (JTextField)this.e_op_buttons.get(i);
-                        String str = input.getText();
+                        String str = input.getText().replaceAll(" ", "").replaceAll("\t", "");
                         e_ops.get(i).setInput(str);
                         System.out.println("***************Input value: " + e_ops.get(i).getInput());
                         break;
@@ -562,7 +562,11 @@ public class ScriptForm implements ActionListener{
                 cut_desc = cut_desc.substring(0, 590) + "...";
             // cut_desc = cut_desc.substring(0, 400);
         }
-        JLabel descrip = new JLabel("<html><div style='text-align: center;'>" + cut_desc + "</html>");
+        JLabel descrip;
+        if (!cut_desc.equals("No Description") && !cut_desc.equals("No Description.") && cut_desc.length() > 145)
+            descrip = new JLabel("<html><div style='text-align: center;'>" + cut_desc + "</html>");
+        else
+            descrip = new JLabel(cut_desc);
         descrip.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border deBorder = BorderFactory.createEmptyBorder(2,20,10,20);
         // Border deBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
@@ -700,7 +704,11 @@ public class ScriptForm implements ActionListener{
                 ocut_desc = ocut_desc.substring(0, 590) + "...";
             // cut_desc = cut_desc.substring(0, 400);
         }
-        JLabel outDesc = new JLabel("<html><div style='text-align: center;'>" + ocut_desc + "</html>");
+        JLabel outDesc;
+        if (!ocut_desc.equals("No Description") && !ocut_desc.equals("No Description.") && ocut_desc.length() > 145)
+            outDesc = new JLabel("<html><div style='text-align: center;'>" + ocut_desc + "</html>");
+        else
+            outDesc = new JLabel(ocut_desc);
         outDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border oBorder = BorderFactory.createEmptyBorder(2,20,10,20);
         // Border deBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
@@ -731,13 +739,13 @@ public class ScriptForm implements ActionListener{
         Option outOp = this.script.findOption("-o");
         if (outOp != null)
             createFormOption(outPane, outOp, false, -1);
-        else {
-            JLabel no_out = new JLabel("No output for this script.");
-            Border noO_border = BorderFactory.createEmptyBorder(10,0,10,0);
-            no_out.setBorder(BorderFactory.createCompoundBorder(no_out.getBorder(),noO_border));
-            no_out.setAlignmentX(Component.CENTER_ALIGNMENT);
-            outPane.add(no_out);
-        }
+        // else {
+        //     JLabel no_out = new JLabel("No output for this script.");
+        //     Border noO_border = BorderFactory.createEmptyBorder(10,0,10,0);
+        //     no_out.setBorder(BorderFactory.createCompoundBorder(no_out.getBorder(),noO_border));
+        //     no_out.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //     outPane.add(no_out);
+        // }
         // JScrollPane outScroll = new JScrollPane(outPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         // outScroll.setMinimumSize(new Dimension(900, 120));
 

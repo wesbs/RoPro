@@ -67,6 +67,7 @@ public class Home {
          }
     }
 
+
     protected static void findScripts(Component f) {
         final JFileChooser fc = new JFileChooser();        
         try{
@@ -236,7 +237,8 @@ public class Home {
         It then calls addComponentsToPane() to add elements
     */
     protected void createAndShowGUI() throws IOException{
-        
+
+
         //Create and set up the window.
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setSize(600,700);

@@ -22,7 +22,7 @@ public class ConsensusTree extends Script {
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(1);
-		this.e_options.add(new Option("Strict", "-s", Option.NOARG, "Use only nodes occurring >50% of the time [default: False]"));
+		this.e_options.add(new Option("Strict?", "-s", Option.NOARG, "Use only nodes occurring >50% of the time [default: False]"));
 	
 	}
 }
