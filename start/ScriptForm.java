@@ -49,7 +49,7 @@ public class ScriptForm implements ActionListener{
     private int[] scripts = Categories.TEST_CAT;
     private static final String[] col_names = {"Script Name", "Description", ""};
     private static final String INTRO = "The scripts for this category are listed below and include script name and a brief description of its function. Select a scripts by clicking 'SELECT', where you can see more details and run the script.";
-    private static final String HELP_ICON_PATH = "./pictures/help_icon.png";
+    private static final String HELP_ICON_PATH = "help_icon.png";
     private static final int TITLE_FONT_SIZE = 15;
     private static final int TOOL_TIP_WIDTH = 70;
     private static final int SUBSCRIPT_FONT_SIZE = 10;
@@ -387,11 +387,12 @@ public class ScriptForm implements ActionListener{
 
     private void createFormOption(Container pane, Option op, Boolean req, int index){
         JPanel optionPane = new JPanel();
-        optionPane.setLayout(new FlowLayout(FlowLayout.LEFT));
-        optionPane.setPreferredSize(new Dimension(900,40));
+        optionPane.setLayout(op.getType() == Option.SELECT ? new ModifiedFlowLayout(ModifiedFlowLayout.LEFT) : new FlowLayout(FlowLayout.LEFT));
+        if (op.getType() != Option.SELECT)
+            optionPane.setPreferredSize(new Dimension(900,40));
         
         //Option Description
-        ImageIcon help = new ImageIcon(HELP_ICON_PATH);
+        ImageIcon help = new ImageIcon(getClass().getResource(HELP_ICON_PATH));
         JLabel details = new JLabel(new ImageIcon(getScaledImage(help.getImage(), 20, 20)));
         details.setToolTipText(op.getDescription().length() > TOOL_TIP_WIDTH + 15 ? convertToHTML(op.getDescription()) : "<html>" + op.getDescription() + "</html>");
         optionPane.add(details);
@@ -406,11 +407,15 @@ public class ScriptForm implements ActionListener{
             case Option.SELECT:
                 JRadioButtonMenuItem select;
                 ButtonGroup selects = new ButtonGroup();
+                // Border sel_border;
                 for (int i = 0; i < op.getSelections().size(); i++){
                     if (op.getSelectedIndex() == i)
                         select = new JRadioButtonMenuItem(op.getSelections().get(i), true);
                     else
                         select = new JRadioButtonMenuItem(op.getSelections().get(i));
+                    // sel_border = BorderFactory.createEmptyBorder(0,2,0,2);
+                    // select.setBorder(BorderFactory.createCompoundBorder(select.getBorder(), sel_border));
+                    select.setOpaque(false);
                     select.setActionCommand(op.getSelections().get(i));
                     selects.add(select);
                     optionPane.add(select);
@@ -508,14 +513,11 @@ public class ScriptForm implements ActionListener{
         // Box Layout
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
-        System.out.println(this.title);
-        System.out.println(this.script.getCommand());
-
         JPanel introPane = new JPanel();
         introPane.setLayout(new BoxLayout(introPane, BoxLayout.Y_AXIS));
         Border intBorder = BorderFactory.createEmptyBorder(2,20,20,20);
-        Border intBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
-        introPane.setBorder(BorderFactory.createCompoundBorder(intBorder2,intBorder));
+        // Border intBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
+        introPane.setBorder(BorderFactory.createCompoundBorder(introPane.getBorder(),intBorder));
 
         // Script Title
         JLabel label = new JLabel(this.title);
@@ -563,7 +565,7 @@ public class ScriptForm implements ActionListener{
             // cut_desc = cut_desc.substring(0, 400);
         }
         JLabel descrip;
-        if (!cut_desc.equals("No Description") && !cut_desc.equals("No Description.") && cut_desc.length() > 145)
+        if (!cut_desc.equals("No Description") && !cut_desc.equals("No Description.") && cut_desc.length() > 130)
             descrip = new JLabel("<html><div style='text-align: center;'>" + cut_desc + "</html>");
         else
             descrip = new JLabel(cut_desc);
@@ -594,8 +596,8 @@ public class ScriptForm implements ActionListener{
         JPanel ropPane = new JPanel();
         ropPane.setLayout(new BoxLayout(ropPane, BoxLayout.Y_AXIS));
         Border ropBorder = BorderFactory.createEmptyBorder(20,20,2,20);
-        Border ropBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
-        ropPane.setBorder(BorderFactory.createCompoundBorder(ropBorder2,ropBorder));
+        // Border ropBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
+        ropPane.setBorder(BorderFactory.createCompoundBorder(ropPane.getBorder(),ropBorder));
 
         // Req Options title
         label2 = new JLabel("Required Options:");
@@ -636,8 +638,8 @@ public class ScriptForm implements ActionListener{
         JPanel eopPane = new JPanel();
         eopPane.setLayout(new BoxLayout(eopPane, BoxLayout.Y_AXIS));
         Border eopBorder = BorderFactory.createEmptyBorder(20,20,2,20);
-        Border eopBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
-        eopPane.setBorder(BorderFactory.createCompoundBorder(eopBorder2,eopBorder));
+        // Border eopBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
+        eopPane.setBorder(BorderFactory.createCompoundBorder(eopPane.getBorder(),eopBorder));
 
         // Extra Options title
         label2 = new JLabel("Extra Options:");
@@ -681,8 +683,8 @@ public class ScriptForm implements ActionListener{
         // outPane.setMaximumSize(new Dimension(900, 500));
         outPane.setLayout(new BoxLayout(outPane, BoxLayout.Y_AXIS));
         Border outBorder = BorderFactory.createEmptyBorder(20,20,2,20);
-        Border outBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
-        outPane.setBorder(BorderFactory.createCompoundBorder(outBorder2,outBorder));
+        // Border outBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
+        outPane.setBorder(BorderFactory.createCompoundBorder(outPane.getBorder(),outBorder));
         outPane.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         label2 = new JLabel("Output:");
@@ -705,7 +707,7 @@ public class ScriptForm implements ActionListener{
             // cut_desc = cut_desc.substring(0, 400);
         }
         JLabel outDesc;
-        if (!ocut_desc.equals("No Description") && !ocut_desc.equals("No Description.") && ocut_desc.length() > 145)
+        if (!ocut_desc.equals("No Description") && !ocut_desc.equals("No Description.") && ocut_desc.length() > 130)
             outDesc = new JLabel("<html><div style='text-align: center;'>" + ocut_desc + "</html>");
         else
             outDesc = new JLabel(ocut_desc);
@@ -774,7 +776,9 @@ public class ScriptForm implements ActionListener{
         
         JPanel buttonPane = new JPanel();
         buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
-        buttonPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+        // Border but_border = BorderFactory.createEmptyBorder(0, 10, 10, 10);
+        // Border butBorder2 = BorderFactory.createMatteBorder(1,0,0,0,Color.BLACK);
+        // buttonPane.setBorder(BorderFactory.createCompoundBorder(outDesc.getBorder(),oBorder));
         buttonPane.add(button3);
         buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
         buttonPane.add(button4);
@@ -783,6 +787,7 @@ public class ScriptForm implements ActionListener{
 
         buttonPane.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border buttonBorder = BorderFactory.createEmptyBorder(10,0,10,0);
+        // Border butBorder2 = BorderFactory.createMatteBorder(1,0,0,0,Color.BLACK);
         buttonPane.setBorder(BorderFactory.createCompoundBorder(buttonPane.getBorder(),buttonBorder));
         buttonPane.setMinimumSize(new Dimension(900, 100));
         buttonPane.setPreferredSize(new Dimension(900, 100));

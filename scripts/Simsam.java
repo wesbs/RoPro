@@ -21,7 +21,7 @@ public class Simsam extends Script {
 		this.r_options.add(new Option("Tree File", "-t", Option.PATH, "Tree file"));
 		this.r_options.add(new Option("Output", "-o", Option.PATH, "Path to the output directory"));
 		this.r_options.add(new Option("Dissimilarity", "-d", Option.INPUT, "Dissimilarity between nodes up the tree, as a single value or comma-separated list of values"));
-		this.r_options.add(new Option("Number of Samples", "-n", Option.NUM, "Number of simulated samples per input sample, as a single value or comma-separated list of values"));
+		this.r_options.add(new Option("Number of Samples", "-n", Option.INPUT, "Number of simulated samples per input sample, as a single value or comma-separated list of values"));
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(1);

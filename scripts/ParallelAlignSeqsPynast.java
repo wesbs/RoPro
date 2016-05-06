@@ -5,7 +5,7 @@ import java.lang.String;
 import java.util.*;
 
 public class ParallelAlignSeqsPynast extends Script {
-	public static String title = "Parallil Align Sequences using Pynast";
+	public static String title = "Parallel Align Sequences using Pynast";
 	public static String b_desc = "Parallel sequence alignment using PyNAST";
 
 	public ParallelAlignSeqsPynast() {

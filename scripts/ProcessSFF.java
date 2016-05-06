@@ -17,7 +17,7 @@ public class ProcessSFF extends Script {
 
 		// set up the required otpions
 		this.r_options = new ArrayList<Option>(1);
-		this.r_options.add(new Option("SFF File(s)", "-i", Option.PATH, 0, "Input directory of sff files or a single sff filepath"));
+		this.r_options.add(new Option("SFF Directory/File", "-i", Option.PATH, "Input directory of sff files or a single sff filepath"));
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(5);

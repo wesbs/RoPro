@@ -19,7 +19,7 @@ public class ParallelPickOTUsSortmerna extends Script {
 		this.r_options = new ArrayList<Option>(3);
 		this.r_options.add(new Option("FASTA File", "-i", Option.PATH, "Path to input fasta file."));
 		this.r_options.add(new Option("Output", "-o", Option.PATH, "Directory where output should be written."));
-		this.r_options.add(new Option("reference File", "-r", Option.PATH, "Path to reference fasta file."));
+		this.r_options.add(new Option("Reference File", "-r", Option.PATH, "Path to reference fasta file."));
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(16);

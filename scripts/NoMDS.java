@@ -17,7 +17,7 @@ public class NoMDS extends Script {
 
 		// set up the required otpions
 		this.r_options = new ArrayList<Option>(2);
-		this.r_options.add(new Option("Distance Matrix File(s)", "-i", Option.PATH, 0, "Path to the input distance matrix file(s) (i.e., the output from beta_diversity.py). Is a directory for batch processing and a filename for a single file operation."));
+		this.r_options.add(new Option("Distance Matrix File/Directory", "-i", Option.PATH, "Path to the input distance matrix file(s) (i.e., the output from beta_diversity.py). Is a directory for batch processing and a filename for a single file operation."));
 		this.r_options.add(new Option("Output", "-o", Option.PATH, "Output path. directory for batch processing, filename for single file operation"));
 
 		// set up the extra options

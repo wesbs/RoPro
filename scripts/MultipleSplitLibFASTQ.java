@@ -17,7 +17,7 @@ public class MultipleSplitLibFASTQ extends Script {
 
 		// set up the required otpions
 		this.r_options = new ArrayList<Option>(2);
-		this.r_options.add(new Option("Input Directories", "-i", Option.PATH, 0, "Input directory of directories, or directory of paired fastq files."));
+		this.r_options.add(new Option("Input Directory/File", "-i", Option.PATH, "Input directory of directories, or directory of paired fastq files."));
 		this.r_options.add(new Option("Output", "-o", Option.PATH, "Output directory to write split_libraries_fastq.py results"));
 
 		// set up the extra options

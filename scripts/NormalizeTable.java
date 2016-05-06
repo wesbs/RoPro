@@ -23,7 +23,7 @@ public class NormalizeTable extends Script {
 		this.e_options = new ArrayList<Option>(6);
 		this.e_options.add(new Option("BIOM File", "-i", Option.PATH, "Path to the input BIOM file (e.g., the output from OTU picking) or directory containing input BIOM files for batch processing [REQUIRED if not passing -l]"));
 		this.e_options.add(new Option("Output", "-o", Option.PATH, "Output filename for single file operation, or output directory for batch processing [REQUIRED if not passing -l]"));
-		this.e_options.add(new Option("Output Stats File", "-s", Option.PATH, "Output CSS statistics file. This will be a directory for batch processing, and a filename for single file operation [default: False]"));
+		this.e_options.add(new Option("Output Stats File?", "-s", Option.NOARG, "Output CSS statistics file. This will be a directory for batch processing, and a filename for single file operation [default: False]"));
 		this.e_options.add(new Option("Replace Negative Numbers?", "-z", Option.NOARG, "Replace negative numbers produced by the DESeq normalization technique with zeros [default: False]"));
 		List<String> selects = new ArrayList<String>();
 		selects.add("CSS");

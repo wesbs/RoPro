@@ -33,7 +33,7 @@ public class PlotSemivariogram extends Script {
 		this.e_options.add(new Option("Y-Axis Label", "-Y", Option.INPUT, "Label for the y axis [default: Distance Dissimilarity (m)]"));
 		this.e_options.add(new Option("Plot Title", "-t", Option.INPUT, "Title of the plot [default: Semivariogram]"));
 		this.e_options.add(new Option("Dot Color", "--dot_color", Option.INPUT, "Dot color for plot, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: white]"));
-		this.e_options.add(new Option("Dot MArker", "--dot_marker", Option.INPUT, "Dot color for plot, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: o]"));
+		this.e_options.add(new Option("Dot Marker", "--dot_marker", Option.INPUT, "Dot color for plot, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: o]"));
 		this.e_options.add(new Option("Line Color", "--line_color", Option.INPUT, "Line color for plot, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: blue]"));
 		this.e_options.add(new Option("Dot Alpha", "--dot_alpha", Option.INPUT, "Alpha for dots, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: 1]"));
 		this.e_options.add(new Option("Line Alpha", "--line_alpha", Option.INPUT, "Alpha for dots, more info: http://matplotlib.sourceforge.net/api/pyplot_api.html [default: 1]"));

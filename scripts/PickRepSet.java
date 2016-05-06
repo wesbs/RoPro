@@ -34,7 +34,7 @@ public class PickRepSet extends Script {
 		selects.add("otu");
 		selects.add("seq_id");
 		this.e_options.add(new Option("Sort By", "-s", Option.SELECT, selects, 0, "Sort by otu or seq_id [default: otu]"));
-		this.e_options.add(new Option("reference Sequences", "-r", Option.PATH, "Collection of preferred representative sequences [default: None]"));
+		this.e_options.add(new Option("Reference Sequences", "-r", Option.PATH, "Collection of preferred representative sequences [default: None]"));
 	
 	}
 }

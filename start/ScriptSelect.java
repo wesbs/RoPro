@@ -44,13 +44,17 @@ public class ScriptSelect {
         this.pw.println(s);
     }
 
+    private static String stripHTML(String s){
+        return s.replaceAll("<html>", "").replaceAll("<div style='text-align: center;'>", "").replaceAll("</html>", "");
+    }
+
     private void addTable(Container pane, JFrame frame){
 
         // set up data table
         Object[][] tableData = new Object[scripts.length][3];
         for (int i = 0; i < scripts.length; i++){
             String [] rowData = Categories.getData(scripts[i]);
-            tableData[i][0] = "  " + rowData[0];
+            tableData[i][0] = "<html>" + rowData[0] + "</html>";
             tableData[i][1] = "<html><div style='text-align: center;'>" + rowData[1] + "</html>";
             tableData[i][2] = "Select";
         }
@@ -77,7 +81,7 @@ public class ScriptSelect {
                 int modelRow = Integer.valueOf( e.getActionCommand() );
                 System.out.println("Script selected: " + table.getModel().getValueAt(modelRow, 0) + " " + modelRow);
                 // this.pw.close(); // will reopen in form.. having trouble passing
-                ScriptForm test = new ScriptForm(scripts[modelRow], table.getModel().getValueAt(modelRow, 0).toString(), jf, pw);
+                ScriptForm test = new ScriptForm(scripts[modelRow], ScriptSelect.stripHTML(table.getModel().getValueAt(modelRow, 0).toString()), jf, pw);
 
             }
         };

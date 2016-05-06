@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 import java.io.*;
 import java.awt.EventQueue;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 
 
 public class ScriptRunner {
@@ -68,6 +69,15 @@ public class ScriptRunner {
 	      });
 
 			ProcessBuilder proc = new ProcessBuilder(cmds);
+			// Map<String, String> env = proc.environment();
+			// env.put("PATH", (env.get("PATH").equals("") ? "/Library/Frameworks/Python.framework/Versions/3.5/bin" : env.get("PATH") + ":/Library/Frameworks/Python.framework/Versions/3.5/bin"));
+			// System.out.println("PATH= " + env.get("PATH"));
+			Formatter fm = new Formatter("script_env_jar_dc.txt");
+			Map<String, String> env = proc.environment();
+	    for (String envName : env.keySet()) {
+	        fm.format("%s=%s%n", envName, env.get(envName));
+	    }
+	    fm.close();
 			Process p = proc.start();
 			BufferedReader stdInput = new BufferedReader(new
                  InputStreamReader(p.getInputStream()));

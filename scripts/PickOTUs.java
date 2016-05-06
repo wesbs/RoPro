@@ -42,7 +42,7 @@ public class PickOTUs extends Script {
 		selects.add("nearest");
 		selects.add("average");
 		this.e_options.add(new Option("Clustering Algorithm", "-c", Option.SELECT, selects, 0, "Clustering algorithm for mothur otu picking method. Valid choices are: furthest, nearest, average. [default: furthest]"));
-		this.e_options.add(new Option("Max CDHit Mem", "-M", Option.NUM, "Maximum available memory to cd-hit-est (via the program’s -M option) for cdhit OTU picking method (units of Mbyte) [default: 400]"));
+		this.e_options.add(new Option("Max CD-Hit Mem", "-M", Option.NUM, "Maximum available memory to cd-hit-est (via the program’s -M option) for cdhit OTU picking method (units of Mbyte) [default: 400]"));
 		this.e_options.add(new Option("Output", "-o", Option.PATH, "Path to store result file [default: ./<OTU_METHOD>_picked_otus/]"));
 		this.e_options.add(new Option("Reference File", "-r", Option.PATH, "Path to reference sequences to search against when using -m blast, -m sortmerna, -m uclust_ref, -m usearch_ref, or -m usearch61_ref [default: /Users/caporaso/.virtualenvs/qiime/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta]"));
 		this.e_options.add(new Option("Blast Database", "-b", Option.PATH, "Pre-existing database to blast against when using -m blast [default: None]"));
@@ -52,7 +52,7 @@ public class PickOTUs extends Script {
 		this.e_options.add(new Option("Sortmerna Coverage", "--sortmerna_coverage", Option.NUM, "Mininum percent query coverage (of an alignment) to consider a hit, expressed as a fraction between 0 and 1 [default: 0.97]"));
 		this.e_options.add(new Option("Sortmerna Tabular?", "--sortmerna_tabular", Option.NOARG, "Output alignments in the Blast tabular format with two additional columns including the CIGAR string and the percent query coverage [default: False]"));
 		this.e_options.add(new Option("Alignments Per Read", "--sortmerna_best_N_alignments", Option.NUM, "Must be set together with –sortmerna_tabular. This option specifies how many alignments per read will be written [default: 1]"));
-		this.e_options.add(new Option("Sortmerna MAx Positions", "--sortmerna_max_pos", Option.NUM, "The maximum number of positions per seed to store in the indexed database [default: 10000]"));
+		this.e_options.add(new Option("Sortmerna Max Positions", "--sortmerna_max_pos", Option.NUM, "The maximum number of positions per seed to store in the indexed database [default: 10000]"));
 		this.e_options.add(new Option("Min Aligned Percent", "--min_aligned_percent", Option.NUM, "Minimum percent of query sequence that can be aligned to consider a hit, expressed as a fraction between 0 and 1 (BLAST OTU picker only) [default: 0.5]"));
 		this.e_options.add(new Option("Similarity", "-s", Option.NUM, "Sequence similarity threshold (for blast, cdhit, uclust, uclust_ref, usearch, usearch_ref, usearch61, usearch61_ref, sumaclust, and sortmerna) [default: 0.97]"));
 		this.e_options.add(new Option("Sumaclust Exact?", "--sumaclust_exact", Option.NOARG, "A sequence is assigned to the best matching seed rather than the first matching seed passing the similarity threshold [default: False]"));

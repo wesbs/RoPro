@@ -28,7 +28,7 @@ public class ParallelBlast extends Script {
 		this.e_options.add(new Option("Word Size", "-w", Option.NUM, "Word size for blast searches [default: 30]"));
 		this.e_options.add(new Option("Blastmat File", "-a", Option.PATH, "Full path to directory containing blastmat file [default: None]"));
 		this.e_options.add(new Option("Reference Sequences", "-r", Option.PATH, "Path to fasta sequences to search against. Required if -b is not provided."));
-		this.e_options.add(new Option("BLAST Dtabase", "-b", Option.PATH, "Name of pre-formatted BLAST database. Required if -r is not provided."));
+		this.e_options.add(new Option("BLAST Database", "-b", Option.PATH, "Name of pre-formatted BLAST database. Required if -r is not provided."));
 		this.e_options.add(new Option("Jobs to Start", "-O", Option.NUM, "Number of jobs to start [default: 1]"));
 		this.e_options.add(new Option("Retain Temporary Files?", "-R", Option.NOARG, "Retain temporary files after runs complete (useful for debugging) [default: False]"));
 		this.e_options.add(new Option("Suppress Submit Jobs?", "-S", Option.NOARG, "Only split input and write commands file - don’t submit jobs [default: False]"));

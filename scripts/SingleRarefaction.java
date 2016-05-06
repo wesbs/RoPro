@@ -19,7 +19,7 @@ public class SingleRarefaction extends Script {
 		this.r_options = new ArrayList<Option>(3);
 		this.r_options.add(new Option("Input Table", "-i", Option.PATH, "Input OTU table filepath."));
 		this.r_options.add(new Option("Output", "-o", Option.PATH, "Output OTU table filepath."));
-		this.r_options.add(new Option("Dpeth", "-d", Option.NUM, "Number of sequences to subsample per sample.Number of sequences to subsample per sample."));
+		this.r_options.add(new Option("Depth", "-d", Option.NUM, "Number of sequences to subsample per sample.Number of sequences to subsample per sample."));
 
 		// set up the extra options
 		this.e_options = new ArrayList<Option>(4);
