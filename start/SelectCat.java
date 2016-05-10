@@ -208,8 +208,6 @@ public class SelectCat {
         JPanel buttonPane = new JPanel();
         buttonPane.setMinimumSize(new Dimension(300, 100));
         buttonPane.setLayout(new FlowLayout());
-        // buttonPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-        // buttonPane.setBackground(Color.ORANGE);
         buttonPane.add(as_button);
         buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
         buttonPane.add(wf_button);

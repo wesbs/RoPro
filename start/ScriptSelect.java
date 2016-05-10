@@ -23,8 +23,8 @@ import java.io.IOException;
 
 public class ScriptSelect {
     private JFrame frame;
-    private String cat_type = "Function";
-    private String cat = "Test";
+    private String cat_type;
+    private String cat;
     private int[] scripts = Categories.TEST_CAT;
     private static final String[] col_names = {"Script Name", "Description", ""};
     private static final String INTRO = "The scripts for this category are listed below and include script name and a brief description of its function. Select a script by clicking 'SELECT', where you can see more details and run the script.";
@@ -35,7 +35,6 @@ public class ScriptSelect {
     public ScriptSelect(String cat, PrintWriter pw){
         this.cat = cat;
         this.pw = pw;
-        System.out.println("Category is " + cat);
         this.scripts = Categories.getCategory(this.cat);
         this.createAndShowGUI();
     }
@@ -79,7 +78,6 @@ public class ScriptSelect {
                 jf.setVisible(false);
                 JTable table = (JTable)e.getSource();
                 int modelRow = Integer.valueOf( e.getActionCommand() );
-                System.out.println("Script selected: " + table.getModel().getValueAt(modelRow, 0) + " " + modelRow);
                 // this.pw.close(); // will reopen in form.. having trouble passing
                 ScriptForm test = new ScriptForm(scripts[modelRow], ScriptSelect.stripHTML(table.getModel().getValueAt(modelRow, 0).toString()), jf, pw);
 
@@ -109,7 +107,7 @@ public class ScriptSelect {
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
         // // Welcome statement
-        JLabel label = new JLabel("Scripts By Function Test:");
+        JLabel label = new JLabel("Scripts By " + this.cat + ":");
         label.setFont(new Font(label.getFont().getFontName(), Font.BOLD, TITLE_FONT_SIZE));
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border pBorder = BorderFactory.createEmptyBorder(20,0,2,0);
@@ -147,7 +145,6 @@ public class ScriptSelect {
                 // System.exit(0);
             }
             catch (IOException ex){
-                System.out.println(ex.getMessage());
             }
           } 
         });
@@ -198,14 +195,7 @@ public class ScriptSelect {
 
         //Set up the content pane.
         Container pane = frame.getContentPane();
-        // BorderLayout bl = pane.getLayout();
-        // bl.setHgap(2);
-        // bl.getVgap(1);
         addComponentsToPane(pane, frame);
-        //Use the content pane's default BorderLayout. No need for
-        // setLayout(new BorderLayout());
-        //Display the window.
-        // frame.pack();
         frame.setVisible(true);
     }
     

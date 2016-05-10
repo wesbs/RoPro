@@ -102,7 +102,6 @@ public class ScriptForm implements ActionListener{
             else {
                 // extra option
                 List<Option> e_ops = ScriptForm.this.script.getExtraOptions();
-                // System.out.println("---->>>> " + r_ops.get(index).getFlag() + " " + r_ops.get(index).getNumFiles());
                 
                 e_ops.get(index).removeFile(selected);
                 this.print("Removing file for option: " + e_ops.get(index).getLabel());
@@ -155,7 +154,6 @@ public class ScriptForm implements ActionListener{
                 else {
                     // extra option
                     List<Option> e_ops = ScriptForm.this.script.getExtraOptions();
-                    // System.out.println("---->>>> " + r_ops.get(index).getFlag() + " " + r_ops.get(index).getNumFiles());
                     
                     e_ops.get(index).addFile(sel.getAbsolutePath());
                     this.files.addItem(sel.getName());
@@ -204,7 +202,6 @@ public class ScriptForm implements ActionListener{
             e.printStackTrace();
           }
         } else { 
-            System.out.println("Desktop is not supported");
          }
       }
 
@@ -240,7 +237,7 @@ public class ScriptForm implements ActionListener{
                             } catch (NumberFormatException e) {
                                 this.print("Not a number entered");
                                 String err = "<html><div style='text-align: center;'>" + n_in.getText() + " is not a valid entry for option '" + r_ops.get(i).getLabel() + "'.<br><br>Please enter a number.</html>";
-                                JOptionPane.showMessageDialog(this.frame, err);
+                                JOptionPane.showMessageDialog(this.frame, err, "Invalid Imput", JOptionPane.ERROR_MESSAGE);
                                 return -1;
                             }
                         }
@@ -278,7 +275,6 @@ public class ScriptForm implements ActionListener{
             if (e_ops.get(i).getFlag().equals("-o"))
                 continue;
             else{
-                System.out.println("Option: " + e_ops.get(i).getFlag());
                 switch (e_ops.get(i).getType()){
                     case Option.SELECT:
                         // will be a button group in list
@@ -299,7 +295,7 @@ public class ScriptForm implements ActionListener{
                             } catch (NumberFormatException e) {
                                 this.print("Not a number entered");
                                 String err = "<html><div style='text-align: center;'>" + n_in.getText() + " is not a valid entry for option '" + e_ops.get(i).getLabel() + "'.<br><br>Please enter a number.</html>";
-                                JOptionPane.showMessageDialog(this.frame, err);
+                                JOptionPane.showMessageDialog(this.frame, err, "Invalid Input", JOptionPane.ERROR_MESSAGE);
                                 return -1;
                             }
                         }
@@ -328,7 +324,6 @@ public class ScriptForm implements ActionListener{
                         JTextField input = (JTextField)this.e_op_buttons.get(i);
                         String str = input.getText().replaceAll(" ", "").replaceAll("\t", "");
                         e_ops.get(i).setInput(str);
-                        System.out.println("***************Input value: " + e_ops.get(i).getInput());
                         break;
                 }
             }
@@ -516,7 +511,6 @@ public class ScriptForm implements ActionListener{
         JPanel introPane = new JPanel();
         introPane.setLayout(new BoxLayout(introPane, BoxLayout.Y_AXIS));
         Border intBorder = BorderFactory.createEmptyBorder(2,20,20,20);
-        // Border intBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         introPane.setBorder(BorderFactory.createCompoundBorder(introPane.getBorder(),intBorder));
 
         // Script Title
@@ -534,7 +528,6 @@ public class ScriptForm implements ActionListener{
         link.setForeground(Color.BLUE);
         link.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
-                // ScriptForm.print("Link Clicked");
                 openScriptPage();
             }
         });
@@ -562,7 +555,6 @@ public class ScriptForm implements ActionListener{
             }
             if (!cut)
                 cut_desc = cut_desc.substring(0, 590) + "...";
-            // cut_desc = cut_desc.substring(0, 400);
         }
         JLabel descrip;
         if (!cut_desc.equals("No Description") && !cut_desc.equals("No Description.") && cut_desc.length() > 130)
@@ -571,7 +563,6 @@ public class ScriptForm implements ActionListener{
             descrip = new JLabel(cut_desc);
         descrip.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border deBorder = BorderFactory.createEmptyBorder(2,20,10,20);
-        // Border deBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         descrip.setBorder(BorderFactory.createCompoundBorder(descrip.getBorder(),deBorder));
         introPane.add(descrip);
 
@@ -583,7 +574,6 @@ public class ScriptForm implements ActionListener{
             see_more.setAlignmentX(Component.CENTER_ALIGNMENT);
             see_more.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e){
-                    // ScriptForm.print("Show full description.");
                     showFullDescription(1);
                 }
             });
@@ -596,7 +586,6 @@ public class ScriptForm implements ActionListener{
         JPanel ropPane = new JPanel();
         ropPane.setLayout(new BoxLayout(ropPane, BoxLayout.Y_AXIS));
         Border ropBorder = BorderFactory.createEmptyBorder(20,20,2,20);
-        // Border ropBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         ropPane.setBorder(BorderFactory.createCompoundBorder(ropPane.getBorder(),ropBorder));
 
         // Req Options title
@@ -638,7 +627,6 @@ public class ScriptForm implements ActionListener{
         JPanel eopPane = new JPanel();
         eopPane.setLayout(new BoxLayout(eopPane, BoxLayout.Y_AXIS));
         Border eopBorder = BorderFactory.createEmptyBorder(20,20,2,20);
-        // Border eopBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         eopPane.setBorder(BorderFactory.createCompoundBorder(eopPane.getBorder(),eopBorder));
 
         // Extra Options title
@@ -649,7 +637,6 @@ public class ScriptForm implements ActionListener{
 
         // Extra Options title
         label2 = new JLabel("These options are not required to run the script.");
-        // label2.setFont(new Font(label2.getFont().getFontName(), Font.BOLD, label2.getFont().getSize()));
         label2.setAlignmentX(Component.CENTER_ALIGNMENT);
         pBorder = BorderFactory.createEmptyBorder(0,0,10,0);
         label2.setBorder(BorderFactory.createCompoundBorder(label2.getBorder(),pBorder));
@@ -666,7 +653,6 @@ public class ScriptForm implements ActionListener{
             eopPane.add(no_ops);
         }
         else {
-            System.out.println(e_options.size());
             for (int i = 0; i < e_options.size(); i++){
                 if (!e_options.get(i).getFlag().equals("-o"))
                     createFormOption(eopPane, e_options.get(i), false, i);
@@ -680,10 +666,8 @@ public class ScriptForm implements ActionListener{
 
         // Set up panel to output descrip and option
         JPanel outPane = new JPanel();
-        // outPane.setMaximumSize(new Dimension(900, 500));
         outPane.setLayout(new BoxLayout(outPane, BoxLayout.Y_AXIS));
         Border outBorder = BorderFactory.createEmptyBorder(20,20,2,20);
-        // Border outBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         outPane.setBorder(BorderFactory.createCompoundBorder(outPane.getBorder(),outBorder));
         outPane.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -711,10 +695,9 @@ public class ScriptForm implements ActionListener{
             outDesc = new JLabel("<html><div style='text-align: center;'>" + ocut_desc + "</html>");
         else
             outDesc = new JLabel(ocut_desc);
-        outDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border oBorder = BorderFactory.createEmptyBorder(2,20,10,20);
-        // Border deBorder2 = BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK);
         outDesc.setBorder(BorderFactory.createCompoundBorder(outDesc.getBorder(),oBorder));
+        outDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
         outPane.add(outDesc);
 
         // if cut short add link
@@ -733,23 +716,9 @@ public class ScriptForm implements ActionListener{
         }
 
 
-        // JLabel outDesc = new JLabel("<html><div style='text-align: center;'>" + this.script.getOutputDesc() + "</html>");
-        // outDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // pBorder = BorderFactory.createEmptyBorder(0,0,10,0);
-        // outDesc.setBorder(BorderFactory.createCompoundBorder(outDesc.getBorder(),pBorder));
-        // outPane.add(outDesc);
         Option outOp = this.script.findOption("-o");
         if (outOp != null)
             createFormOption(outPane, outOp, false, -1);
-        // else {
-        //     JLabel no_out = new JLabel("No output for this script.");
-        //     Border noO_border = BorderFactory.createEmptyBorder(10,0,10,0);
-        //     no_out.setBorder(BorderFactory.createCompoundBorder(no_out.getBorder(),noO_border));
-        //     no_out.setAlignmentX(Component.CENTER_ALIGNMENT);
-        //     outPane.add(no_out);
-        // }
-        // JScrollPane outScroll = new JScrollPane(outPane, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        // outScroll.setMinimumSize(new Dimension(900, 120));
 
         pane.add(outPane);
 
@@ -761,12 +730,10 @@ public class ScriptForm implements ActionListener{
         button4.addActionListener(new ActionListener() { 
           public void actionPerformed(ActionEvent e) { 
             frame.dispose();
-            // ScriptForm.print("'Home' selected. Closing Script Form.");
             try {
                 Home home = new Home(pw);
             }
             catch (IOException ex){
-                System.out.println(ex.getMessage());
             }
           } 
         });
@@ -776,9 +743,6 @@ public class ScriptForm implements ActionListener{
         
         JPanel buttonPane = new JPanel();
         buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
-        // Border but_border = BorderFactory.createEmptyBorder(0, 10, 10, 10);
-        // Border butBorder2 = BorderFactory.createMatteBorder(1,0,0,0,Color.BLACK);
-        // buttonPane.setBorder(BorderFactory.createCompoundBorder(outDesc.getBorder(),oBorder));
         buttonPane.add(button3);
         buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
         buttonPane.add(button4);
@@ -787,11 +751,9 @@ public class ScriptForm implements ActionListener{
 
         buttonPane.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border buttonBorder = BorderFactory.createEmptyBorder(10,0,10,0);
-        // Border butBorder2 = BorderFactory.createMatteBorder(1,0,0,0,Color.BLACK);
         buttonPane.setBorder(BorderFactory.createCompoundBorder(buttonPane.getBorder(),buttonBorder));
         buttonPane.setMinimumSize(new Dimension(900, 100));
         buttonPane.setPreferredSize(new Dimension(900, 100));
-        // buttonPane.setMaximumSize(new Dimension(1200, 200));
         pane.add(buttonPane);
     }
 
@@ -833,19 +795,13 @@ public class ScriptForm implements ActionListener{
         buttonPane.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border buttonBorder = BorderFactory.createEmptyBorder(10,0,10,0);
         buttonPane.setBorder(BorderFactory.createCompoundBorder(buttonPane.getBorder(),buttonBorder));
-        // buttonPane.setMinimumSize(new Dimension(900, 100));
-        // buttonPane.setPreferredSize(new Dimension(900, 100));
-        // buttonPane.setMaximumSize(new Dimension(1200, 200));
         contentPane.add(buttonPane);
-        // contentPane.add(form);
-        // contentPane.add(cat);
         console.pack ();
         console.setVisible (true);
         this.print("About to run script");
         this.print("RUNNING SCRIPT WITH THESE OPTIONS");
         for (int i = 0; i < ops.size(); i++)
             this.print(ops.get(i).optionString());
-        // textArea.append("\n\n**************STARTING SCRIPT**************\n\n");
 
         String cmd = this.script.getCommand();
         Thread t = new Thread(new Runnable() {
@@ -858,8 +814,6 @@ public class ScriptForm implements ActionListener{
         });
         t.start();
 
-        // ScriptRunner sr = new ScriptRunner(textArea);
-        // sr.runScript(this.script.getCommand(), ops);
     }
 
     public void actionPerformed(ActionEvent e){
@@ -914,7 +868,6 @@ public class ScriptForm implements ActionListener{
                 this.print("File Selected: " + sel_o.getAbsolutePath());
                 if (o_op.getNumFiles() != 1){
                     // multiple files
-                    // JLabel lbl_o = (JLabel)this.r_op_buttons.get(index);
                     if (outPath.getText().equals(""))
                         outPath.setText(sel_o.getName());
                     else
@@ -923,11 +876,7 @@ public class ScriptForm implements ActionListener{
                 else {
                     // single file
                     outPath.setText(sel_o.getName());
-                    // ((JLabel)this.r_op_buttons.get(index)).setText(sel.getName());
                     o_op.setPath(sel_o.getAbsolutePath());
-                    // this.script.getReqOptions().get(index).setPath(sel.getAbsolutePath());
-                    System.out.println("Set label to: " + sel_o.getName());
-                    System.out.println("Set path to: " + sel_o.getAbsolutePath());
                 }
             }
             else {
@@ -947,7 +896,6 @@ public class ScriptForm implements ActionListener{
                 if (call[0].equals("R")){
                     // required option
                     List<Option> r_ops = this.script.getReqOptions();
-                    // System.out.println("---->>>> " + r_ops.get(index).getFlag() + " " + r_ops.get(index).getNumFiles());
                     if (r_ops.get(index).getNumFiles() == 1){
                         // single file
                         ((JLabel)this.r_op_buttons.get(index)).setText(sel.getName());
@@ -972,7 +920,6 @@ public class ScriptForm implements ActionListener{
                 else {
                     // extra option
                     List<Option> e_ops = this.script.getExtraOptions();
-                    // System.out.println("---->>>> " + r_ops.get(index).getFlag() + " " + r_ops.get(index).getNumFiles());
                     if (e_ops.get(index).getNumFiles() == 1){
                         // single file
                         ((JLabel)this.e_op_buttons.get(index)).setText(sel.getName());
@@ -994,7 +941,6 @@ public class ScriptForm implements ActionListener{
                         }
                     }
                 }
-                // System.out.println("File selected: " + path);
             }
             else {
                 this.print("No File selected.");
@@ -1019,21 +965,7 @@ public class ScriptForm implements ActionListener{
         //Set up the content pane.
         Container pane = this.frame.getContentPane();
         this.prnt = pane;
-        // JPanel container = new JPanel();
-        // container.setMaximumSize(new Dimension(900, 700));
-        // BorderLayout bl = pane.getLayout();
-        // bl.setHgap(2);
-        // bl.getVgap(1);
-        // JScrollPane scroll = new JScrollPane();
-        // this.frame.setContentPane(scroll);
         addComponentsToPane(pane, this.frame);
-        // pane.add(scroll);
-        // this.frame.setContentPane(scroll);
-        // this.frame.add(scroll);
-        //Use the content pane's default BorderLayout. No need for
-        // setLayout(new BorderLayout());
-        //Display the window.
-        // this.frame.pack();
         this.frame.setVisible(true);
     }
     

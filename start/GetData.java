@@ -59,7 +59,6 @@ public class GetData {
             e.printStackTrace();
           }
         } else { 
-            System.out.print("Desktop is not supported");
          }
     }
 
@@ -72,9 +71,6 @@ public class GetData {
     }
 
     private void addTable(Container pane, JFrame frame){
-        System.out.println("Rows: " + SRA_IDS.length);
-        System.out.println("Columnds: " + col_names.length);
-
         // set up data table
         Object[][] tableData = new Object[SRA_IDS.length][col_names.length];
         for (int i = 0; i < SRA_IDS.length; i++){
@@ -105,7 +101,6 @@ public class GetData {
                 // jf.setVisible(false);
                 JTable table = (JTable)e.getSource();
                 int modelRow = Integer.valueOf( e.getActionCommand() );
-                System.out.println("Download Selected: HTTP " + table.getModel().getValueAt(modelRow, 0) + " " + modelRow);
                 GetData.openPage(DOWN_LINKS_HTTP[modelRow]);
             }
         };
@@ -116,7 +111,6 @@ public class GetData {
                 // jf.setVisible(false);
                 JTable table = (JTable)e.getSource();
                 int modelRow = Integer.valueOf( e.getActionCommand() );
-                System.out.println("Download Selected: FTP " + table.getModel().getValueAt(modelRow, 0) + " " + modelRow);
                 GetData.openPage(DOWN_LINKS_FTP[modelRow]);
             }
         };
@@ -156,14 +150,6 @@ public class GetData {
 
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
-        // // Welcome statement
-        // JLabel label = new JLabel("Scripts By Function Test:");
-        // label.setFont(new Font(label.getFont().getFontName(), Font.BOLD, TITLE_FONT_SIZE));
-        // label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // Border pBorder = BorderFactory.createEmptyBorder(20,0,2,0);
-        // label.setBorder(BorderFactory.createCompoundBorder(label.getBorder(),pBorder));
-        // pane.add(label);
-
         JLabel intro = new JLabel("<html>" + INTRO + "</html>");
         intro.setAlignmentX(Component.CENTER_ALIGNMENT);
         Border introBorder = BorderFactory.createEmptyBorder(10,25,15,25);
@@ -176,7 +162,6 @@ public class GetData {
         link.setForeground(Color.BLUE);
         link.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
-                // System.out.println("Link Clicked");
                 openPage(GetData.HBP_WEBSITE);
             }
         });
@@ -186,17 +171,6 @@ public class GetData {
         pane.add(link);
 
         addTable(pane, frame);
-
-        // Scripts Button
-        // JButton button3 = new JButton("<< Back to Categories");
-        // button3.addActionListener(new ActionListener() { 
-        //   public void actionPerformed(ActionEvent e) { 
-        //     frame.dispose();
-        //     // this.print("'Back to Categories' selected. Closing Script Selection.");
-        //     SelectCat sc = new SelectCat(pw);
-        //     // System.exit(0);
-        //   } 
-        // });
 
         // Get Data Button
         JButton button4 = new JButton("Home");
@@ -209,7 +183,6 @@ public class GetData {
                 // System.exit(0);
             }
             catch (IOException ex){
-                System.out.println(ex.getMessage());
             }
           } 
         });
@@ -253,14 +226,7 @@ public class GetData {
 
         //Set up the content pane.
         Container pane = frame.getContentPane();
-        // BorderLayout bl = pane.getLayout();
-        // bl.setHgap(2);
-        // bl.getVgap(1);
         addComponentsToPane(pane, frame);
-        //Use the content pane's default BorderLayout. No need for
-        // setLayout(new BorderLayout());
-        //Display the window.
-        // frame.pack();
         frame.setVisible(true);
     }
     

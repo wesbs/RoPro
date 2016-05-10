@@ -55,7 +55,6 @@ public class ScriptRunner {
 			if (op.getType() != Option.NOARG)
 				cmds.add(op.getArgument());
 		}
-		// System.out.println(fullString);
 		for (int i = 1; i < cmds.size(); i++)
 			sb.append(" " + cmds.get(i));
 		try {
@@ -69,15 +68,15 @@ public class ScriptRunner {
 	      });
 
 			ProcessBuilder proc = new ProcessBuilder(cmds);
-			// Map<String, String> env = proc.environment();
-			// env.put("PATH", (env.get("PATH").equals("") ? "/Library/Frameworks/Python.framework/Versions/3.5/bin" : env.get("PATH") + ":/Library/Frameworks/Python.framework/Versions/3.5/bin"));
-			// System.out.println("PATH= " + env.get("PATH"));
-			Formatter fm = new Formatter("script_env_jar_dc.txt");
 			Map<String, String> env = proc.environment();
-	    for (String envName : env.keySet()) {
-	        fm.format("%s=%s%n", envName, env.get(envName));
-	    }
-	    fm.close();
+			// env.put("PATH", (env.get("PATH").equals("") ? "/usr/bin:/bin:/usr/sbin:/sbin:usr/local/bin:/usr/local/git/bin" : env.get("PATH") + ":/usr/local/git/bin"));
+			env.put("PATH", "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin");
+			// Formatter fm = new Formatter("script_env_jar.txt");
+			// // Map<String, String> env = proc.environment();
+	  //   for (String envName : env.keySet()) {
+	  //       fm.format("%s=%s%n", envName, env.get(envName));
+	  //   }
+	  //   fm.close();
 			Process p = proc.start();
 			BufferedReader stdInput = new BufferedReader(new
                  InputStreamReader(p.getInputStream()));
@@ -113,7 +112,6 @@ public class ScriptRunner {
       this.destination.append("\n\n***************** SCRIPT FINISHED ******************\n");
 		}
 		catch (IOException | InterruptedException | InvocationTargetException e) {
-			System.out.println(e.getMessage());
 		}
 	}
 	/*

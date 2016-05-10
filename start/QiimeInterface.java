@@ -54,7 +54,6 @@ public class QiimeInterface {
 			Home go = new Home(pw);
 		}
 		catch (Exception e){
-			System.out.println("Heyyyyy");
 			this.pw.print(e.getMessage());
 			this.pw.close();
 			System.exit(0);
